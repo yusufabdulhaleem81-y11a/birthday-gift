@@ -1,1516 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0b0713">
-<title>For Fadimatubinta — Something I've Been Wanting to Tell You</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Fadimatubinta 🎀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="birthday.css">
 
-<!-- Fonts: Cormorant Garamond (cinematic serif) · Parisienne (script names) · Caveat (handwritten notes) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
- 
-<style>
-/* ============================================================
-   FOR FADIMATUBINTA — a digital love letter
-   ------------------------------------------------------------
-   HOW TO PERSONALISE:
-   1. Photos   → search this file for "REPLACE:" comments
-   2. Notes    → search for "EDIT ME" (also tappable on screen,
-                 saved in the browser)
-   3. Her photos work best portrait (4:5)
-   ============================================================ */
+  <style>
 
-/* ---------- design tokens ---------- */
-:root{
-  --bg:#0b0713;
-  --ink:#f6ecf1;          /* main text */
-  --soft:#c9b6c6;         /* body text */
-  --muted:#8f7d9c;        /* quiet text */
-  --rose:#f2a7c0;         /* soft pink */
-  --rose-bright:#f7bcd0;
-  --rose-deep:#e2678f;
-  --lav:#c3aef0;          /* lavender */
-  --gold:#f0d8a8;         /* starlight gold */
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Cormorant Garamond',Georgia,serif;
-  overflow:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-/* soft nebula wash behind the stars */
-body::before{
-  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:
-    radial-gradient(1100px 750px at 82% -12%, rgba(143,122,208,.16), transparent 62%),
-    radial-gradient(900px 650px at 8% 108%, rgba(226,106,146,.12), transparent 60%),
-    radial-gradient(700px 520px at 50% 55%, rgba(58,32,74,.22), transparent 70%);
-}
-/* cinematic vignette over everything */
-body::after{
-  content:'';position:fixed;inset:0;z-index:32;pointer-events:none;
-  background:radial-gradient(125% 95% at 50% 45%, transparent 55%, rgba(5,2,10,.55) 100%);
-}
-#sky{position:fixed;inset:0;z-index:0}
-#fx{position:fixed;inset:0;z-index:30;pointer-events:none}
-
-/* ---------- icons ---------- */
-.ic{display:inline-block;width:16px;height:16px;fill:currentColor;flex:none;vertical-align:middle}
-
-/* ---------- fixed UI ---------- */
-.music-btn{
-  position:fixed;top:clamp(.9rem,3vw,1.4rem);right:clamp(.9rem,3vw,1.4rem);z-index:40;
-  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:rgba(20,11,33,.55);border:1px solid rgba(242,167,192,.35);color:var(--rose);
-  cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:.4s;
-}
-.music-btn:hover{border-color:rgba(242,167,192,.7);box-shadow:0 0 22px rgba(226,103,143,.25)}
-.music-btn .ic{width:17px;height:17px}
-.eq{position:absolute;bottom:6px;display:flex;gap:2px;align-items:flex-end;height:7px;opacity:0;transition:.4s}
-.music-btn.playing .eq{opacity:1}
-.eq i{width:2px;height:2px;background:var(--rose)}
-.music-btn.playing .eq i{animation:eqB .9s ease-in-out infinite}
-.music-btn.playing .eq i:nth-child(2){animation-delay:.25s}
-.music-btn.playing .eq i:nth-child(3){animation-delay:.5s}
-@keyframes eqB{0%,100%{height:2px}50%{height:7px}}
-.music-hint{
-  position:fixed;top:calc(clamp(.9rem,3vw,1.4rem) + 52px);right:clamp(.9rem,3vw,1.4rem);z-index:40;
-  font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);
-  opacity:0;animation:hintIn 1.2s ease 2.5s forwards;transition:opacity .8s,transform .8s;
-}
-.music-hint.hide{opacity:0!important;transform:translateY(-6px)}
-@keyframes hintIn{to{opacity:.75}}
-
-.monogram{position:fixed;top:clamp(1rem,3vw,1.5rem);left:clamp(.9rem,3vw,1.4rem);z-index:40;display:flex;align-items:center;gap:.55rem}
-.monogram .ic{width:14px;height:14px;color:var(--rose);animation:beat 1.9s ease-in-out infinite}
-.monogram span{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:430px){.monogram span{display:none}}
-
-.chapter-label{
-  position:fixed;bottom:1.1rem;left:clamp(.9rem,3vw,1.4rem);z-index:40;
-  font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);
-  opacity:.75;transition:opacity .3s;
-}
-.chapter-label.sw{opacity:0}
-
-/* ---------- pages & cinematic transitions ---------- */
-.page{
-  position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;
-  -webkit-overflow-scrolling:touch;overscroll-behavior:contain;
-  opacity:0;visibility:hidden;z-index:10;
-}
-.page.active{opacity:1;visibility:visible;z-index:12}
-.page.enter{animation:pageIn 1.15s cubic-bezier(.22,.61,.21,1) both}
-.page.leave{animation:pageOut .75s ease both;z-index:14}
-@keyframes pageIn{from{opacity:0;transform:translateY(28px) scale(.985);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
-@keyframes pageOut{to{opacity:0;transform:translateY(-18px) scale(1.012);filter:blur(8px)}}
-.page.locked{overflow:hidden}
-
-.page-inner{position:relative;max-width:680px;margin:0 auto;padding:clamp(4.2rem,11vh,6.5rem) clamp(1.35rem,5vw,2.5rem) 26vh}
-.page-inner.wide{max-width:880px}
-
-.act{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4.5rem 1.4rem 4.5rem}
-.act-1{width:100%}
-
-/* ---------- typography ---------- */
-.eyebrow{font-size:.66rem;letter-spacing:.46em;text-transform:uppercase;color:var(--rose);opacity:.9}
-.chapter-head{text-align:center;margin-bottom:clamp(2.2rem,6vh,3.4rem)}
-.ch-title{font-weight:500;font-size:clamp(2rem,6.4vw,3.2rem);line-height:1.15;color:var(--ink);margin-top:.9rem}
-.ch-title.mid{font-size:clamp(1.7rem,5vw,2.4rem)}
-.lead{font-size:clamp(1.22rem,3vw,1.55rem);font-style:italic;color:var(--ink);text-align:center;line-height:1.6}
-.prose{max-width:620px;margin:0 auto}
-.prose p{font-size:clamp(1.06rem,1rem+.5vw,1.24rem);line-height:1.95;color:var(--soft);margin-bottom:1.5em}
-.center-p{max-width:600px;margin:0 auto;text-align:center;font-size:clamp(1.08rem,1rem+.5vw,1.26rem);line-height:1.9;color:var(--soft)}
-.hl{color:var(--rose);font-style:italic}
-.hl2{color:var(--ink);font-style:italic}
-.dropcap::first-letter{font-family:Parisienne,cursive;font-size:3.3em;float:left;line-height:.8;padding:.08em .14em 0 0;color:var(--rose)}
-.small-line{font-size:clamp(1.28rem,3.6vw,1.7rem);font-style:italic;color:var(--soft);text-align:center;line-height:1.55}
-.big-line{font-weight:500;font-size:clamp(1.65rem,5.2vw,2.55rem);line-height:1.4;color:var(--ink);text-align:center}
-.big-script{font-family:Parisienne,cursive;font-weight:400;font-size:clamp(2.1rem,7.6vw,3.7rem);line-height:1.25;color:var(--ink);text-align:center}
-.love-line{color:var(--rose-bright);font-size:clamp(2rem,7vw,3.1rem);text-shadow:0 0 32px rgba(240,109,155,.5)}
-.question-line{font-weight:600;font-size:clamp(1.45rem,4.6vw,2.15rem);line-height:1.55;color:#fff;text-align:center;text-shadow:0 0 26px rgba(242,167,192,.28);margin-bottom:1.4rem}
-.whisper{margin:clamp(2rem,5vh,2.8rem) 0;padding-left:1.4rem;border-left:2px solid rgba(242,167,192,.35);max-width:560px}
-.whisper.center-w{margin-left:auto;margin-right:auto}
-.whisper p{font-style:italic;font-size:clamp(1.14rem,2.7vw,1.42rem);line-height:1.75;color:var(--ink);margin-bottom:.8em}
-.fear-stack{margin:clamp(2.4rem,6vh,3.6rem) auto;text-align:center;display:flex;flex-direction:column;gap:1rem;max-width:560px}
-.fear-stack p{font-style:italic;font-size:clamp(1.14rem,2.7vw,1.4rem);color:var(--soft)}
-.fear-word{font-family:Parisienne,cursive;font-style:normal!important;font-size:clamp(2.6rem,9vw,3.8rem)!important;color:var(--rose);text-shadow:0 0 34px rgba(242,167,192,.4)}
-.moment-lines{display:flex;flex-direction:column;align-items:center;gap:.5rem;margin:clamp(2rem,5vh,3rem) 0}
-.moment{font-family:Parisienne,cursive;font-size:clamp(1.8rem,6vw,2.6rem);color:var(--rose)}
-.litany{max-width:560px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:1rem}
-.litany p{font-size:clamp(1.12rem,2.6vw,1.34rem);font-style:italic;color:var(--ink);line-height:1.6}
-.litany p::before{content:'—';color:var(--rose);margin-right:.6rem;font-style:normal}
-.gold{color:var(--gold)}
-
-/* ---------- heartbeats ---------- */
-@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.14)}24%{transform:scale(1)}36%{transform:scale(1.08)}55%{transform:scale(1)}}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-
-/* ---------- buttons ---------- */
-.btn{
-  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.65em;
-  padding:1.02em 2.2em;border-radius:999px;
-  font-family:'Cormorant Garamond',serif;font-weight:500;font-size:.92rem;
-  letter-spacing:.26em;text-transform:uppercase;color:var(--ink);
-  background:rgba(226,103,143,.07);border:1px solid rgba(242,167,192,.38);
-  box-shadow:0 0 26px rgba(226,103,143,.10),inset 0 0 14px rgba(226,103,143,.05);
-  cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  transition:transform .45s cubic-bezier(.22,.61,.21,1),background .45s,border-color .45s,box-shadow .45s;
-}
-.btn .ic{width:1.05em;height:1.05em;color:var(--rose)}
-.btn:hover{transform:translateY(-2px);background:rgba(226,103,143,.15);border-color:rgba(242,167,192,.66);box-shadow:0 8px 42px rgba(226,103,143,.24),inset 0 0 20px rgba(226,103,143,.08)}
-.btn:hover .ic{animation:beat 1s ease-in-out infinite}
-.btn:active{transform:translateY(0) scale(.985)}
-.btn:focus-visible{outline:2px solid rgba(242,167,192,.7);outline-offset:3px}
-.btn-love{animation:ctaGlow 3.4s ease-in-out infinite}
-.btn-love:hover{animation:none}
-@keyframes ctaGlow{
-  0%,100%{box-shadow:0 0 24px rgba(226,103,143,.12),inset 0 0 14px rgba(226,103,143,.05)}
-  50%{box-shadow:0 0 46px rgba(226,103,143,.3),inset 0 0 18px rgba(226,103,143,.09)}
-}
-.page-cta{display:flex;justify-content:center;margin-top:clamp(2.6rem,7vh,4rem)}
-.btn-quiet{background:transparent;border-color:rgba(201,182,198,.3);box-shadow:none;color:var(--soft)}
-.btn-quiet:hover{background:rgba(201,182,198,.08);border-color:rgba(201,182,198,.55)}
-.btn-small{font-size:.8rem;padding:.85em 1.7em}
-
-/* ---------- sequence steps (timed reveals) ---------- */
-.sequence{display:flex;flex-direction:column;align-items:center;gap:clamp(1.5rem,4.5vh,2.5rem);text-align:center;width:100%}
-.step{opacity:0;transform:translateY(26px);filter:blur(7px);pointer-events:none;
-  transition:opacity 1.15s ease,transform 1.15s cubic-bezier(.22,.61,.21,1),filter 1.15s ease}
-.step.on{opacity:1;transform:none;filter:none;pointer-events:auto}
-.pause-mark{display:flex;justify-content:center}
-.dots{display:inline-flex;gap:.55rem;padding-top:.4rem}
-.dots i{width:.42rem;height:.42rem;border-radius:50%;background:var(--rose);opacity:.25;animation:dotPulse 1.4s ease-in-out infinite}
-.dots i:nth-child(2){animation-delay:.22s}
-.dots i:nth-child(3){animation-delay:.44s}
-@keyframes dotPulse{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.95;transform:scale(1.15)}}
-.tap-hint{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
-  font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);opacity:0;transition:opacity 1s}
-.page.seq-live .tap-hint{animation:hintPulse 3s ease-in-out 2.5s infinite}
-@keyframes hintPulse{0%,100%{opacity:.15}50%{opacity:.6}}
-.page.seq-done .tap-hint{display:none}
-.scroll-cue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;transition:opacity 1.2s ease .5s;
-  color:var(--muted);font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;pointer-events:none}
-.page.seq-done .scroll-cue{opacity:.85}
-.scroll-cue::before{content:'';width:1px;height:46px;background:linear-gradient(rgba(242,167,192,.75),transparent);animation:cueDrop 2.2s ease-in-out infinite}
-@keyframes cueDrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-/* ---------- scroll reveals ---------- */
-[data-reveal]{opacity:0;transform:translateY(34px);
-  transition:opacity 1.05s ease var(--rd,0ms),transform 1.05s cubic-bezier(.22,.61,.21,1) var(--rd,0ms)}
-[data-reveal].in{opacity:1;transform:none}
-
-/* ---------- divider ---------- */
-.divider{display:flex;align-items:center;gap:.9rem;justify-content:center;margin:clamp(2.4rem,7vh,3.8rem) auto;width:min(320px,72%)}
-.divider::before,.divider::after{content:'';height:1px;flex:1}
-.divider::before{background:linear-gradient(90deg,transparent,rgba(242,167,192,.45))}
-.divider::after{background:linear-gradient(90deg,rgba(242,167,192,.45),transparent)}
-.divider .ic{width:.75rem;height:.75rem;color:var(--rose)}
-
-/* ---------- PAGE 1 : the name ---------- */
-.name-script{font-family:Parisienne,cursive;font-size:clamp(3rem,11.5vw,6rem);line-height:1.1;color:#fff;
-  text-shadow:0 0 34px rgba(242,167,192,.5),0 0 90px rgba(226,103,143,.25)}
-.name-script .ch{display:inline-block;opacity:0;transform:translateY(16px) rotate(6deg);filter:blur(6px)}
-.seq-name.on .ch{animation:chIn .85s cubic-bezier(.22,.61,.21,1) both;animation-delay:calc(var(--i)*.075s + .15s)}
-@keyframes chIn{to{opacity:1;transform:none;filter:none}}
-.name-sub{margin-top:.9rem;font-size:clamp(.8rem,2.6vw,1rem);letter-spacing:.5em;text-transform:uppercase;color:var(--soft)}
-.name-heart{width:1.5rem;height:1.5rem;color:var(--rose-deep);margin-top:1.1rem;animation:beat 1.7s ease-in-out infinite;
-  filter:drop-shadow(0 0 12px rgba(226,103,143,.7))}
-.name-block{text-align:center}
-.name-caps{font-weight:500;font-size:clamp(1.05rem,4.4vw,1.8rem);letter-spacing:.34em;text-transform:uppercase;color:#fff;
-  text-shadow:0 0 26px rgba(242,167,192,.35);line-height:1.7}
-
-/* ---------- polaroids ---------- */
-.polaroid{position:relative;background:#f7f0e7;padding:.7rem .7rem 0;border-radius:6px;
-  box-shadow:0 24px 50px rgba(5,2,10,.55),0 4px 14px rgba(5,2,10,.4);
-  transform:rotate(var(--r,0deg)) translateY(var(--py,0px));
-  transition:transform .6s cubic-bezier(.22,.61,.21,1),box-shadow .6s}
-.polaroid:hover{transform:rotate(0deg) translateY(calc(var(--py,0px) - 6px))}
-.polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;filter:saturate(.94) contrast(1.02)}
-.polaroid figcaption{font-family:Caveat,cursive;font-size:1.25rem;color:#57454c;text-align:center;padding:.75rem .3rem .95rem;line-height:1.3}
-.tape{position:absolute;top:-12px;left:50%;width:92px;height:26px;transform:translateX(-50%) rotate(-4deg);
-  background:rgba(246,238,225,.26);border:1px solid rgba(255,255,255,.14);box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:2}
-.polaroid.empty{background:rgba(247,240,231,.045);border:1px dashed rgba(242,167,192,.42);box-shadow:none}
-.polaroid.empty .frame{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem}
-.polaroid.empty .ic{width:1.9rem;height:1.9rem;color:var(--rose);opacity:.85;animation:beat 2.4s ease-in-out infinite}
-.polaroid.empty figcaption{color:var(--soft)}
-
-/* ---------- PAGE 3 ---------- */
-.gallery3{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.1rem,4vw,2.5rem);align-items:flex-start;margin:clamp(2.2rem,6vh,3.4rem) 0}
-.ph{width:min(292px,72vw);position:relative}
-.ph-r{margin-top:3.2rem}
-@media(max-width:560px){.ph-r{margin-top:-1.4rem}}
-.admire{max-width:560px;margin:clamp(2rem,5vh,3rem) auto;display:flex;flex-direction:column;gap:clamp(1.7rem,4.5vh,2.5rem)}
-.admire-item{position:relative;padding-left:2.4rem}
-.admire-item::before{content:'';position:absolute;left:.32rem;top:1.6rem;bottom:-1.7rem;width:1px;
-  background:linear-gradient(rgba(242,167,192,.35),rgba(242,167,192,.05))}
-.admire-item:last-child::before{display:none}
-.admire-item>.star-ic{position:absolute;left:0;top:.15rem;width:1.05rem;height:1.05rem;color:var(--rose)}
-.admire-title{font-weight:600;font-size:clamp(1rem,2.6vw,1.14rem);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.admire-note{font-family:Caveat,cursive;font-size:clamp(1.35rem,3.4vw,1.5rem);line-height:1.35;color:var(--rose);margin-top:.4rem;outline:none;border-radius:4px;transition:.35s}
-.editable{cursor:text}
-.editable:focus{background:rgba(242,167,192,.07);box-shadow:0 0 0 1px rgba(242,167,192,.3)}
-.admire-item .pen{position:absolute;right:-1.3rem;top:.3rem;width:.9rem;height:.9rem;color:var(--muted);opacity:0;transition:opacity .4s}
-.admire-item:hover .pen{opacity:.55}
-@media(max-width:560px){.admire-item .pen{right:.1rem;top:-.9rem}}
-
-/* ---------- PAGE 4 : the beating heart ---------- */
-.heart-emblem{position:relative;width:clamp(86px,16vw,118px);margin:0 auto clamp(1.2rem,4vh,2rem)}
-.heart-emblem .halo{position:absolute;inset:-42%;border-radius:50%;
-  background:radial-gradient(circle,rgba(226,103,143,.22),transparent 65%);animation:halo 1.7s ease-in-out infinite}
-@keyframes halo{0%,100%{opacity:.5;transform:scale(.92)}30%{opacity:.95;transform:scale(1.06)}60%{opacity:.7}}
-.heart-emblem .ic{position:relative;width:100%;height:auto;color:var(--rose-deep);animation:beat 1.7s ease-in-out infinite;
-  filter:drop-shadow(0 0 18px rgba(226,103,143,.6)) drop-shadow(0 0 55px rgba(226,103,143,.28))}
-.heart-emblem.excited .ic{animation-duration:.72s;color:#ef5c8a;
-  filter:drop-shadow(0 0 26px rgba(240,92,138,.9)) drop-shadow(0 0 80px rgba(240,92,138,.4))}
-.heart-emblem.excited .halo{animation-duration:.72s;background:radial-gradient(circle,rgba(240,92,138,.4),transparent 70%)}
-
-/* ---------- PAGE 5 : inspiration panels ---------- */
-.panel{position:relative;max-width:620px;margin:0 auto clamp(2.6rem,7vh,4rem);padding:clamp(.4rem,2vw,1rem) 0 clamp(1.2rem,4vw,1.8rem) clamp(1.3rem,4vw,1.9rem);border-left:1px solid var(--accL)}
-.panel.mir{margin-left:auto;margin-right:0;border-left:0;border-right:1px solid var(--accL);padding-left:0;padding-right:clamp(1.3rem,4vw,1.9rem)}
-.panel .num{position:absolute;top:-.4rem;right:0;font-style:italic;font-size:clamp(3.2rem,9vw,4.8rem);line-height:1;color:var(--acc);opacity:.16;font-weight:400}
-.panel.mir .num{right:auto;left:0}
-.panel .tag{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--acc)}
-.panel .couple{font-family:Parisienne,cursive;font-size:clamp(1.65rem,5.4vw,2.25rem);color:var(--ink);margin:.6rem 0 .9rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
-.panel .couple .ic{width:1.05rem;height:1.05rem;color:var(--acc);animation:beat 1.9s ease-in-out infinite}
-.panel p{font-size:clamp(1.04rem,.98rem+.5vw,1.2rem);line-height:1.9;color:var(--soft);margin-bottom:1.1em}
-.panel .whisper{margin:1.4rem 0 0}
-.panel--demon{--acc:#ef6f9b;--accL:rgba(239,111,155,.38)}
-.panel--hori{--acc:#f2c98f;--accL:rgba(242,201,143,.38)}
-.panel--kimi{--acc:#b9a5ee;--accL:rgba(185,165,238,.4)}
-@media(max-width:680px){.panel,.panel.mir{margin-left:auto;margin-right:auto;border-left:1px solid var(--accL);border-right:0;padding-left:clamp(1.2rem,4vw,1.9rem);padding-right:0}.panel .num,.panel.mir .num{right:0;left:auto}}
-.sec-label{text-align:center;font-size:.66rem;letter-spacing:.46em;text-transform:uppercase;color:var(--rose);margin:clamp(2.6rem,7vh,4rem) auto 1.6rem}
-
-/* ---------- PAGE 6 : the moon ---------- */
-.moon{position:relative;width:min(180px,42vw);margin:0 auto clamp(1.2rem,4vh,2rem);animation:floaty 9s ease-in-out infinite}
-.moon svg{display:block;width:100%;filter:drop-shadow(0 0 26px rgba(245,230,205,.35)) drop-shadow(0 0 84px rgba(245,230,205,.16))}
-.page.moon-bright .moon svg{filter:drop-shadow(0 0 42px rgba(245,230,205,.62)) drop-shadow(0 0 130px rgba(245,230,205,.3))}
-.act.moon-act::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(62% 44% at 50% 5%,rgba(243,226,200,.12),transparent 72%)}
-.page.moon-bright .act.moon-act::before{background:radial-gradient(62% 44% at 50% 5%,rgba(243,226,200,.2),transparent 72%)}
-
-/* ---------- PAGE 7 : the answer ---------- */
-.answer-btns{display:flex;flex-direction:column;gap:1.3rem;align-items:center;margin-top:clamp(2.4rem,6vh,3.5rem);transition:opacity .6s}
-.answer-btns.fade-out{opacity:0;pointer-events:none}
-.btn-yes{font-size:1.08rem;padding:1.2em 3.4em;background:rgba(226,103,143,.13)}
-.btn-think{border-color:rgba(195,174,240,.42);background:rgba(163,142,222,.07);
-  box-shadow:0 0 24px rgba(163,142,222,.08),inset 0 0 14px rgba(163,142,222,.04);color:var(--ink)}
-.btn-think .ic{color:var(--lav)}
-.btn-think:hover{background:rgba(163,142,222,.15);border-color:rgba(195,174,240,.68);box-shadow:0 8px 38px rgba(163,142,222,.2)}
-.answer-note{font-size:1rem;font-style:italic;color:var(--muted)}
-.think-msg{max-width:560px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.15rem}
-.t-line{opacity:0;transform:translateY(16px);transition:opacity 1s,transform 1s;pointer-events:none;
-  font-size:clamp(1.14rem,2.8vw,1.35rem);font-style:italic;color:var(--ink)}
-.t-line.on{opacity:1;transform:none;pointer-events:auto}
-.t-line.soft{color:var(--muted);font-size:1.05rem}
-.t-end{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
-
-/* ---------- PAGE 8 : the celebration ---------- */
-.yay{font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(1.15rem,4.4vw,1.7rem);color:var(--ink);text-shadow:0 0 28px rgba(242,167,192,.35);line-height:1.6}
-.name-yay{color:var(--rose-bright);text-shadow:0 0 34px rgba(240,109,155,.55);font-size:clamp(2.5rem,9vw,4.2rem)}
-.merge-stage{position:relative;width:min(380px,78vw);height:150px}
-.m-heart{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;opacity:0}
-.m-heart .ic{width:100%;height:100%}
-.m-left .ic{color:var(--rose);filter:drop-shadow(0 0 14px rgba(242,167,192,.7))}
-.m-right .ic{color:var(--lav);filter:drop-shadow(0 0 14px rgba(195,174,240,.7))}
-.merge-wrap.on .m-left{animation:comeL 4.8s cubic-bezier(.45,.05,.3,1) forwards}
-.merge-wrap.on .m-right{animation:comeR 4.8s cubic-bezier(.45,.05,.3,1) forwards}
-@keyframes comeL{0%{transform:translateX(calc(-46vw - 70px)) rotate(-16deg);opacity:0}12%{opacity:1}58%{transform:translateX(-13px) rotate(0);opacity:1}76%,100%{transform:translateX(0);opacity:0}}
-@keyframes comeR{0%{transform:translateX(calc(46vw + 70px)) rotate(16deg);opacity:0}12%{opacity:1}58%{transform:translateX(13px) rotate(0);opacity:1}76%,100%{transform:translateX(0);opacity:0}}
-.m-one{position:absolute;top:50%;left:50%;width:88px;height:88px;margin:-44px 0 0 -44px;opacity:0}
-.m-one .ic{width:100%;height:100%;color:#f06d9b;animation:beat 1.4s ease-in-out infinite;
-  filter:drop-shadow(0 0 22px rgba(240,109,155,.85)) drop-shadow(0 0 64px rgba(240,109,155,.4))}
-.merge-wrap.on .m-one{animation:onePop 4.8s ease forwards}
-@keyframes onePop{0%,58%{opacity:0;transform:scale(.3)}66%{opacity:1;transform:scale(1.18)}72%{transform:scale(1)}100%{opacity:1;transform:scale(1)}}
-.m-ring{position:absolute;top:50%;left:50%;width:88px;height:88px;margin:-44px 0 0 -44px;border-radius:50%;border:1px solid rgba(242,167,192,.85);opacity:0}
-.merge-wrap.on .m-ring{animation:ringOut 4.8s ease-out forwards}
-@keyframes ringOut{0%,60%{opacity:0;transform:scale(.4)}64%{opacity:.9}100%{opacity:0;transform:scale(2.7)}}
-.bday{text-align:center;padding:clamp(2.6rem,7vh,4rem) 1.4rem;border:1px solid rgba(240,216,168,.25);border-radius:14px;
-  background:radial-gradient(120% 100% at 50% 0%,rgba(240,216,168,.07),transparent 62%);max-width:560px;margin:clamp(2.6rem,7vh,4rem) auto}
-.bday .ic-cake{width:44px;height:44px;color:var(--gold);filter:drop-shadow(0 0 16px rgba(240,216,168,.55));animation:floaty 5s ease-in-out infinite}
-.bday-script{font-family:Parisienne,cursive;font-weight:400;font-size:clamp(2.4rem,8.5vw,3.9rem);color:var(--gold);text-shadow:0 0 28px rgba(240,216,168,.32);margin-top:1rem}
-.bday-name{font-weight:500;font-size:clamp(1.15rem,3.6vw,1.7rem);letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin-top:.7rem;line-height:1.7}
-
-/* ---------- PAGE 9 : the gallery ---------- */
-.gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.4rem,4.5vw,2.6rem);margin:clamp(2.4rem,6vh,3.6rem) auto;max-width:820px}
-.gallery .ph:nth-child(even){margin-top:2.6rem}
-.signoff{text-align:center;font-family:Caveat,cursive;font-size:clamp(1.4rem,4vw,1.7rem);color:var(--rose);line-height:1.5}
-.again{display:flex;justify-content:center;margin-top:clamp(2rem,5vh,3rem)}
-
-/* ---------- compact screens ---------- */
-@media(max-height:640px){
-  .heart-emblem{width:64px}
-  .moon{width:120px}
-  .sequence{gap:1rem}
-  .big-line{font-size:clamp(1.3rem,4vw,1.9rem)}
-  .merge-stage{height:110px}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.2s!important}
-}
-[hidden]{display:none!important}
-</style>
+  </style>
 </head>
-<body data-page="p1">
+<body>
 
-<!-- ===== inline icon library (no emoji, no external icon files) ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l2.1 7.9L22 12l-7.9 2.1L12 22l-2.1-7.9L2 12l7.9-2.1z"/></symbol>
-    <symbol id="i-note" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></symbol>
-    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></symbol>
-    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 17.3V20h2.7L17.8 8.9l-2.7-2.7L4 17.3zM20.1 6.6c.3-.3.3-.8 0-1.1l-1.6-1.6c-.3-.3-.8-.3-1.1 0l-1.2 1.2 2.7 2.7 1.2-1.2z"/></symbol>
-    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M12 1.8c1.2 1.5 1.1 2.8 0 3.7-1.1-.9-1.2-2.2 0-3.7z"/><rect x="11.3" y="6.2" width="1.4" height="3.4" rx=".7"/><rect x="3.9" y="10.6" width="16.2" height="2.5" rx=".9"/><path d="M4.6 13.9h14.8c.5 0 .9.4.9.9v4.6c0 .8-.6 1.4-1.4 1.4H5.1c-.8 0-1.4-.6-1.4-1.4v-4.6c0-.5.4-.9.9-.9z"/></symbol>
-  </defs>
-</svg>
+  <!-- Background particle canvas -->
+  <canvas id="particle-canvas"></canvas>
 
-<!-- living night sky (background) & floating hearts / petals (foreground) -->
-<canvas id="sky" aria-hidden="true"></canvas>
-<canvas id="fx" aria-hidden="true"></canvas>
+  <!-- =============================================
+       UNLOCK SCREEN
+  ============================================= -->
+  <div id="unlock-screen" role="dialog" aria-label="Birthday gift opening screen">
+    <div class="unlock-stars" id="unlock-stars"></div>
 
-<!-- fixed UI -->
-<div class="monogram" aria-hidden="true"><svg class="ic"><use href="#i-heart"/></svg><span>for Fadimatubinta</span></div>
-<button class="music-btn" id="musicBtn" aria-label="Play the music" aria-pressed="false" title="Play the music">
-  <svg class="ic"><use href="#i-note"/></svg>
-  <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
-</button>
-<div class="music-hint" id="musicHint">turn on the music</div>
-<div class="chapter-label" id="chapterLabel">i — the beginning</div>
-<!-- music panel: upload or paste a URL to use custom background audio -->
-<div id="musicPanel" style="position:fixed;top:5.6rem;right:1rem;z-index:41;display:none;gap:.45rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:.6rem;border-radius:8px;background:rgba(12,7,16,.55);border:1px solid rgba(242,167,192,.12);color:var(--muted);font-size:.8rem;">
-  <label style="display:block;color:var(--muted);font-size:.72rem;margin-bottom:.25rem">Add music (file or URL)</label>
-  <input id="musicFile" type="file" accept="audio/*" style="display:block;width:220px;margin-bottom:.4rem;font-size:.8rem" />
-  <input id="musicUrl" type="text" placeholder="Paste audio URL and press Save" style="display:block;width:220px;margin-bottom:.35rem;padding:.28rem;border-radius:6px;border:1px solid rgba(255,255,255,.04);background:transparent;color:var(--soft)" />
-  <div style="display:flex;gap:.4rem">
-    <button id="saveMusicUrl" class="btn btn-small" style="padding:.45rem .6rem">Save URL</button>
-    <button id="clearMusic" class="btn btn-small btn-quiet" style="padding:.45rem .6rem">Clear</button>
-  </div>
-</div>
-<!-- NOTE: to use your local song automatically, place the file named
-     justin-dai-marvin.mp3 inside the project folder or the `ic/` folder.
-     Supported example paths: ic/justin-dai-marvin.mp3 or justin-dai-marvin.mp3 -->
-<!-- Fullscreen gesture overlay shown when autoplay is blocked -->
-<div id="musicOverlay" style="display:none;position:fixed;inset:0;z-index:80;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(6,4,8,.6),rgba(6,4,8,.85));color:var(--ink);text-align:center;padding:2rem;">
-  <div style="max-width:520px;margin:0 auto">
-    <h2 style="font-family:Parisienne,cursive;font-size:2.6rem;margin-bottom:.6rem;color:var(--rose-bright)">Tap to enable music</h2>
-    <p style="color:var(--soft);margin-bottom:1rem">The song will start playing as soon as you tap anywhere.</p>
-    <button id="overlayPlay" class="btn btn-love" style="padding:.8rem 1.4rem">Play now</button>
-  </div>
-</div>
- 
-<noscript><p style="position:fixed;inset:0;display:grid;place-items:center;padding:2rem;text-align:center;font-size:1.2rem">This letter needs JavaScript to open… please enable it, she's worth it.</p></noscript>
-
-<main id="book">
-
-<!-- ============================================================
-     PAGE 1 — THERE'S SOMETHING I'VE BEEN WANTING TO TELL YOU
-     (If you already built your own first page, you may swap the
-      inner content of this section — just keep id="p1".)
-     ============================================================ -->
-<section class="page" id="p1">
-  <div class="act">
-    <div class="sequence">
-      <p class="step small-line" data-hold="2700">There's something I've been wanting to tell you…</p>
-      <p class="step small-line" data-hold="2600">Something my heart has been holding<br>for a very long time.</p>
-      <p class="step small-line" data-hold="2700">And today… I finally found the courage to say it.</p>
-      <div class="step seq-name" data-hold="3700" data-event="name">
-        <div class="name-script" id="herName">Fadimatubinta</div>
-        <div class="name-sub">Jibrin Abdullahi</div>
-        <svg class="name-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+    <!-- 3D Gift Box -->
+    <div class="gift-wrap" id="gift-box" aria-hidden="true">
+      <div class="gift-box-lid">
+        <div class="ribbon-v"></div>
+        <div class="bow"></div>
       </div>
-      <p class="step small-line" data-hold="2300">This is for you.</p>
-      <div class="step seq-cta">
-        <button class="btn btn-love" data-go="2">Let me tell you <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-      </div>
-    </div>
-    <p class="tap-hint">tap anywhere to continue</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 2 — HOW IT ALL STARTED
-     ============================================================ -->
-<section class="page" id="p2">
-  <div class="page-inner">
-    <header class="chapter-head" data-reveal>
-      <p class="eyebrow">chapter two</p>
-      <h2 class="ch-title">How It All Started</h2>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    </header>
-
-    <div class="prose">
-      <p class="dropcap" data-reveal>Fadimatubinta… I don't know if you ever realized this. But our story — at least from my side — started <em class="hl2">much earlier</em> than you probably think.</p>
-
-      <p data-reveal>It was during our <em class="hl">first semester</em>. Somewhere between lectures, hallways and perfectly ordinary days — in moments you probably don't even remember — something quietly changed in me. I didn't plan it. I never woke up one morning and decided to have a crush on you. It just happened… slowly, softly, the way the most important things usually do.</p>
-
-      <p data-reveal>I was already crushing on you back then. And I had no idea what to do with that feeling, because I had never carried anything like it before. So I did the only thing I could think of at the time — I told your friend <em class="hl">Okoly</em>, hoping that saying it out loud to someone might make the feeling feel smaller.</p>
-
-      <p data-reveal>It didn't. It only grew.</p>
-
-      <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-
-      <blockquote class="whisper" data-reveal>
-        <p>I don't know if you remember when Okoly told you that one of his friends had a crush on you…</p>
-        <p>Maybe at that time, you didn't know that friend was me.</p>
-        <p>And maybe you never imagined that the person hiding those feelings was someone who had been too shy to say them directly.</p>
-      </blockquote>
-
-      <p data-reveal>I remember wondering what you thought when you heard it. Whether you laughed. Whether you tried to guess who it was. Whether my name ever crossed your mind, even for a second. I never asked — I was too afraid of the answer.</p>
-
-      <p data-reveal>Even during this <em class="hl">second semester</em>, my feelings were still there. They hadn't faded the way I half-hoped and half-feared they would. If anything, they had grown quieter and deeper — the kind of feeling that settles into your chest and simply refuses to leave.</p>
-
-      <p data-reveal>I told <em class="hl">Hakuna Matau</em> too, and he even tried to help me. He really did.</p>
-
-      <div class="fear-stack" data-stagger>
-        <p data-reveal>But there was always something stopping me.</p>
-        <p data-reveal class="fear-word">Fear.</p>
-        <p data-reveal>The fear of rejection.</p>
-        <p data-reveal>The fear that telling you the truth might change everything.</p>
-        <p data-reveal>The fear that maybe my feelings would only ever remain mine.</p>
-      </div>
-
-      <blockquote class="whisper" data-reveal>
-        <p>Sometimes, the hardest thing isn't falling for someone.</p>
-        <p>Sometimes, the hardest thing is finding the courage to tell them.</p>
-        <p>And maybe that's exactly what happened to me.</p>
-      </blockquote>
-
-      <p data-reveal>I kept telling myself that one day, I would tell you. But one day kept becoming another day. And before I knew it, I had been carrying these feelings quietly for a long time — through one whole semester, and then another.</p>
-    </div>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <h3 class="big-line" data-reveal>But now… I think you deserve to know the truth.</h3>
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="3">The truth is… <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 3 — THE LITTLE THINGS I ADMIRE ABOUT YOU
-     ============================================================ -->
-<section class="page" id="p3">
-  <div class="page-inner wide">
-    <header class="chapter-head" data-reveal>
-      <p class="eyebrow">chapter three</p>
-      <h2 class="ch-title">The Little Things I Admire About You</h2>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    </header>
-
-    <p class="small-line" data-reveal style="margin-bottom:.6rem">Maybe you didn't notice…</p>
-    <p class="big-line" data-reveal>But I noticed you.</p>
-    <p class="center-p" data-reveal style="margin-top:1.8rem">Sometimes, it's the smallest things about a person that slowly find their way into your heart.</p>
-
-    <div class="moment-lines" data-stagger>
-      <p class="moment" data-reveal>A smile.</p>
-      <p class="moment" data-reveal>A conversation.</p>
-      <p class="moment" data-reveal>A simple moment.</p>
-    </div>
-
-    <p class="center-p" data-reveal>And suddenly, someone becomes more special than you ever expected.</p>
-
-    <!-- photo interlude — REPLACE the two src values below with her photos -->
-    <div class="gallery3">
-      <div class="ph" data-reveal>
-        <figure class="polaroid" style="--r:-4deg" data-para=".3">
-          <span class="tape" aria-hidden="true"></span>
-          <!-- REPLACE: her photo #1 — e.g. src="photos/her1.jpg" -->
-          <img src="https://picsum.photos/seed/fadima-smile/620/775.jpg" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
-          <figcaption>the first thing I ever noticed</figcaption>
-        </figure>
-      </div>
-      <div class="ph ph-r" data-reveal>
-        <figure class="polaroid" style="--r:3deg" data-para=".18">
-          <span class="tape" aria-hidden="true"></span>
-          <!-- REPLACE: her photo #2 — e.g. src="photos/her2.jpg" -->
-          <img src="https://picsum.photos/seed/fadima-moment/620/775.jpg" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
-          <figcaption>an ordinary moment, made special</figcaption>
-        </figure>
+      <div class="gift-box-body">
+        <div class="ribbon-v"></div>
+        <div class="ribbon-h"></div>
       </div>
     </div>
 
-    <h3 class="ch-title mid" data-reveal style="text-align:center">What I Admire About You</h3>
+    <p class="unlock-title">A Special Gift<br>Awaits You 🌸</p>
+    <p class="unlock-sub">Something beautiful was crafted just for you</p>
 
-    <!-- EDIT ME: every note below is tappable (it saves in this browser),
-         or simply rewrite the text here in the file. -->
-    <div class="admire" data-stagger>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">Her smile</div>
-        <div class="admire-note editable" data-key="smile" contenteditable="true" spellcheck="false">the kind of smile that makes an ordinary day feel like it was worth it.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">Her personality</div>
-        <div class="admire-note editable" data-key="personality" contenteditable="true" spellcheck="false">there's something about the way she carries herself that feels effortless and real.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">Her kindness</div>
-        <div class="admire-note editable" data-key="kindness" contenteditable="true" spellcheck="false">the way she treats people says everything about her heart.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">Her intelligence</div>
-        <div class="admire-note editable" data-key="intelligence" contenteditable="true" spellcheck="false">she understands things deeply, and it shows in the way she speaks.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">Her sense of humor</div>
-        <div class="admire-note editable" data-key="humor" contenteditable="true" spellcheck="false">the moments she laughs are the moments I remember most.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">The way she talks</div>
-        <div class="admire-note editable" data-key="talks" contenteditable="true" spellcheck="false">I could listen to her talk about anything at all.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-      <div class="admire-item" data-reveal>
-        <svg class="star-ic" aria-hidden="true"><use href="#i-star"/></svg>
-        <div class="admire-title">The way she makes ordinary moments feel special</div>
-        <div class="admire-note editable" data-key="moments" contenteditable="true" spellcheck="false">some people just have that gift. She has it.</div>
-        <svg class="pen" aria-hidden="true"><use href="#i-pen"/></svg>
-      </div>
-    </div>
-
-    <blockquote class="whisper center-w" data-reveal>
-      <p>There are so many things I wish I had the courage to tell you earlier.</p>
-      <p>Maybe I was too quiet. Maybe I was too shy.</p>
-      <p>But silence doesn't always mean the heart has nothing to say.</p>
-      <p>Sometimes, it simply means the heart is afraid of saying too much.</p>
-    </blockquote>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <h3 class="big-line" data-reveal>And somewhere between all those little moments…</h3>
-    <h4 class="big-script" data-reveal style="margin-top:.8rem">my feelings became something more.</h4>
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="4">I need to tell you something… <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 4 — THE CONFESSION
-     ============================================================ -->
-<section class="page locked" id="p4">
-  <!-- act one : the cinematic three words -->
-  <div class="act act-1">
-    <div class="heart-emblem" id="p4heart">
-      <span class="halo" aria-hidden="true"></span>
-      <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>
-    </div>
-    <div class="sequence">
-      <p class="step big-line" data-hold="2400">The truth is…</p>
-      <p class="step big-script" data-hold="2200">Fadimatubinta…</p>
-      <p class="step big-line love-line" data-hold="2800" data-event="excited">I like you.</p>
-      <p class="step small-line" data-hold="2000">No…</p>
-      <p class="step big-line" data-hold="2600">I think it's more than that.</p>
-    </div>
-    <div class="scroll-cue">scroll slowly</div>
+    <button class="btn-open" id="btn-open" aria-label="Open birthday gift">
+      ✨ Open Your Gift
+    </button>
   </div>
 
-  <!-- act two : the full confession -->
-  <div class="page-inner prose">
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+  <!-- =============================================
+       MAIN CONTENT
+  ============================================= -->
+  <div id="main-content" aria-live="polite">
 
-    <p data-reveal>Now that it's said… let me say it properly. Because you deserve more than three words whispered into the dark.</p>
-
-    <p data-reveal>I have genuinely had feelings for you since the <em class="hl">first semester</em>. These feelings didn't suddenly appear overnight. They didn't arrive like a storm. They grew — slowly, quietly, through small moments you probably never noticed — until one day I realized you had quietly become a part of how I saw the world.</p>
-
-    <p data-reveal>I tried to hide them, because I was shy. I was afraid of rejection. I didn't know if you would ever feel the same way, and the thought of hearing the wrong answer kept my heart locked. But the feelings never disappeared. No matter how much time passed, they stayed. And instead of fading, they slowly grew.</p>
-
-    <p data-reveal>I don't want to pressure you. I don't want to make you uncomfortable — not now, not ever. I simply want to finally be honest. With you, and with myself.</p>
-
-    <blockquote class="whisper" data-reveal>
-      <p>Fadimatubinta, I don't know what the future will look like.</p>
-      <p>I don't know if I will always have the perfect words.</p>
-      <p>But I know that what I feel for you is real.</p>
-    </blockquote>
-
-    <blockquote class="whisper" data-reveal>
-      <p>You became someone I wanted to know more about.</p>
-      <p>Someone I wanted to see happy.</p>
-      <p>Someone whose presence could quietly make an ordinary moment feel different.</p>
-    </blockquote>
-
-    <blockquote class="whisper" data-reveal>
-      <p>Maybe I was scared because some people are worth being nervous about.</p>
-      <p>Because when someone starts to matter to you, the possibility of rejection becomes frightening.</p>
-      <p>But today, I don't want fear to speak louder than my heart anymore.</p>
-    </blockquote>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-
-    <h3 class="big-line" data-reveal>So here I am…</h3>
-    <h3 class="big-line" data-reveal style="margin-top:1.2rem">Finally telling you what my heart has been trying to say for so long.</h3>
-    <h4 class="big-script" data-reveal style="margin-top:1.4rem">I have feelings for you, Fadimatubinta. Real feelings.</h4>
-
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="5">And there's something else I want you to know… <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 5 — THE KIND OF LOVE I WANT TO GIVE YOU
-     ============================================================ -->
-<section class="page" id="p5">
-  <div class="page-inner">
-    <header class="chapter-head" data-reveal>
-      <p class="eyebrow">chapter five</p>
-      <h2 class="ch-title">The Kind of Love I Want to Give You</h2>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    </header>
-
-    <p class="center-p" data-reveal>Before I ask you what I'm going to ask you, I want you to understand something about me — the kind of love I've always dreamed of giving. I've watched stories about love that stayed with me long after they ended. Not because they were perfect — but because they showed me the kind of person I want to be for you.</p>
-
-    <!-- one : My Demon -->
-    <div class="panel panel--demon" data-reveal>
-      <span class="num" aria-hidden="true">01</span>
-      <p class="tag">inspired by · my demon</p>
-      <div class="couple">Jeong Gu-won <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Do Do-hee</div>
-      <p>In <em class="hl">My Demon</em>, Jeong Gu-won and Do Do-hee begin with a contract and end with something no contract could ever contain. What stayed with me wasn't the fantasy — it was the way they protected each other. The way they chose each other again and again, cared for each other in small, stubborn ways, and held on through every storm. A love built on devotion: showing up, guarding each other's heart, staying when staying is hard.</p>
-      <blockquote class="whisper">
-        <p>I know real life isn't My Demon.</p>
-        <p>I don't have supernatural powers like Jeong Gu-won.</p>
-        <p>And our lives won't have a perfect K-drama script.</p>
-        <p>But watching stories about love sometimes makes you think about the kind of person you want to be for someone.</p>
-      </blockquote>
-    </div>
-
-    <!-- two : Horimiya -->
-    <div class="panel panel--hori mir" data-reveal>
-      <span class="num" aria-hidden="true">02</span>
-      <p class="tag">inspired by · horimiya</p>
-      <div class="couple">Kyouko Hori <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Izumi Miyamura</div>
-      <p>In <em class="hl">Horimiya</em>, Hori and Miyamura teach each other something quiet and rare — that love can be a place where you take off every mask. Two people the world saw one way, who got to see each other truly. Comfortable silences. Care that goes beyond appearances. The safety of being exactly who you are, on your best days and your worst ones.</p>
-      <blockquote class="whisper">
-        <p>I don't want you to ever feel like you have to become someone else around me.</p>
-        <p>I want to know the real you.</p>
-        <p>The happy you. The tired you. The quiet you.</p>
-        <p>The version of you that doesn't always have everything figured out.</p>
-      </blockquote>
-    </div>
-
-    <!-- three : Kimi ni Todoke -->
-    <div class="panel panel--kimi" data-reveal>
-      <span class="num" aria-hidden="true">03</span>
-      <p class="tag">inspired by · kimi ni todoke</p>
-      <div class="couple">Sawako Kuronuma <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Shota Kazehaya</div>
-      <p>In <em class="hl">Kimi ni Todoke</em>, Kazehaya never rushes Sawako. He is patient. Kind. He doesn't try to change her — he helps her feel seen, and lets something beautiful grow at its own pace, in its own time. That's the kind of gentleness I want to learn. That's the kind of patience I want to have.</p>
-    </div>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <h3 class="big-line" data-reveal>I don't want to copy someone else's love story.</h3>
-    <h3 class="big-script" data-reveal style="margin-top:.9rem">I want to create our own.</h3>
-
-    <p class="center-p" data-reveal style="margin-top:2.6rem">I don't want to promise you a perfect life — because I know life isn't always perfect. But I want to be someone who genuinely cares.</p>
-
-    <p class="sec-label" data-reveal>what I can honestly promise to try to be</p>
-    <div class="litany" data-stagger>
-      <p data-reveal>Someone who checks on you when you're tired.</p>
-      <p data-reveal>Someone who reminds you to rest when you've been working too hard.</p>
-      <p data-reveal>Someone who celebrates your achievements.</p>
-      <p data-reveal>Someone who listens when you need someone to talk to.</p>
-      <p data-reveal>Someone who tries to make you smile when life becomes difficult.</p>
-      <p data-reveal>Someone who respects your boundaries and your feelings.</p>
-      <p data-reveal>Someone who supports your dreams instead of standing in their way.</p>
-    </div>
-
-    <p class="sec-label" data-reveal>on the days that aren't easy</p>
-    <blockquote class="whisper center-w" data-stagger>
-      <p data-reveal>I don't want to love only the version of you that is always happy.</p>
-      <p data-reveal>I want to understand the days when you're tired too.</p>
-      <p data-reveal>The days when you're stressed.</p>
-      <p data-reveal>The days when you don't feel like talking.</p>
-      <p data-reveal>And even the days when you simply need space.</p>
-    </blockquote>
-
-    <p class="sec-label" data-reveal>what caring means to me</p>
-    <blockquote class="whisper center-w" data-stagger>
-      <p data-reveal>Because caring about someone doesn't mean trying to control them.</p>
-      <p data-reveal>It means respecting them.</p>
-      <p data-reveal>Understanding them.</p>
-      <p data-reveal>And being there in the ways they need you to be.</p>
-    </blockquote>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <h3 class="big-line" data-reveal>Maybe our story doesn't need to look like a K-drama…</h3>
-    <h3 class="big-line" data-reveal style="margin-top:1.1rem">Maybe it can be something even more beautiful…</h3>
-    <h4 class="big-script" data-reveal style="margin-top:1.2rem">Because it will be ours.</h4>
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="6">So… can I ask you something? <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 6 — THE QUESTION
-     ============================================================ -->
-<section class="page locked" id="p6">
-  <div class="act act-1 moon-act">
-    <div class="moon" aria-hidden="true">
-      <svg viewBox="0 0 200 200">
-        <defs>
-          <radialGradient id="moonG" cx="42%" cy="38%" r="75%">
-            <stop offset="0%" stop-color="#fdf6e7"/>
-            <stop offset="70%" stop-color="#efe1c2"/>
-            <stop offset="100%" stop-color="#e0cdA6"/>
-          </radialGradient>
-        </defs>
-        <circle cx="100" cy="100" r="72" fill="url(#moonG)"/>
-        <g fill="rgba(120,95,60,.10)">
-          <circle cx="80" cy="76" r="12"/><circle cx="121" cy="108" r="17"/>
-          <circle cx="94" cy="133" r="8"/><circle cx="133" cy="70" r="7"/><circle cx="65" cy="112" r="9"/>
-        </g>
-      </svg>
-    </div>
-    <div class="sequence">
-      <p class="step small-line" data-hold="2700">I've kept this in my heart for a very long time…</p>
-      <p class="step small-line" data-hold="2600">And now that you've reached this part of my heart…</p>
-      <p class="step big-line" data-hold="2500">There is only one question left.</p>
-      <p class="step pause-mark" data-hold="2700" data-event="moon"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p>
-      <div class="step name-block" data-hold="3400">
-        <p class="name-caps">Fadimatubinta<br>Jibrin Abdullahi</p>
-        <svg class="name-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-eyebrow"><span>🎂</span> Today is your day <span>🎂</span></div>
+      <h1 class="hero-name" id="hero-heading">Fadimatubinta<br>Jibrin <br>Abdullahi ❤️🎂</h1>
+      <p class="hero-tagline">Happy Birthday, my best friend 💕</p>
+      <p class="hero-message">
+        On this beautiful day, the universe paused to celebrate the extraordinary soul that you are.
+        May every moment of today be as radiant and wonderful as you make every day feel.
+      </p>
+      <button class="btn-music reveal reveal-delay-2" id="btn-music" aria-label="Play birthday song">
+        🎵 Play Song
+      </button>
+      <audio id="birthday-audio" src="ic/song.mp3" preload="auto"></audio>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <div class="scroll-dot"></div>
       </div>
-    </div>
-    <div class="scroll-cue">scroll slowly</div>
-  </div>
+    </section>
 
-  <div class="page-inner prose">
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+    <!-- COUNTER -->
+    <section class="counter-section" aria-labelledby="counter-heading">
+      <div style="max-width:800px;margin:0 auto;text-align:center;">
+        <p class="section-label reveal">Marking the Moments</p>
+        <h2 class="section-title reveal reveal-delay-1" id="counter-heading">
+          Days of <em>Brightness</em>
+        </h2>
+        <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 0;">
+          Every year, every day — a testament to how much light you bring into this world.
+        </p>
 
-    <p data-reveal>I don't know exactly where our story will take us. I don't want to make promises that sound beautiful today but mean nothing tomorrow. But I know that I would genuinely love the opportunity to know you more. To understand you. To make you smile. To support you. And to create beautiful memories together.</p>
-
-    <p data-reveal>I want to celebrate your good days with you. And when life becomes difficult, I want you to know that you don't always have to face everything alone.</p>
-
-    <blockquote class="whisper" data-reveal>
-      <p>I want to care about your happiness.</p>
-      <p>I want to respect your feelings.</p>
-      <p>I want to support your dreams.</p>
-      <p>And I want to appreciate the person you are.</p>
-    </blockquote>
-
-    <p data-reveal>I don't expect you to be perfect — and I know that I am not perfect either. But I am willing to be genuine. I am willing to communicate. I am willing to listen. I am willing to learn. And if we both choose to give this a chance, I am willing to put effort into something beautiful.</p>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-
-    <h3 class="big-script" data-reveal>So, Fadimatubinta…</h3>
-    <h3 class="big-line" data-reveal style="margin-top:1.6rem">I don't want to keep this in my heart anymore.</h3>
-
-    <div style="margin-top:clamp(2.4rem,7vh,3.6rem)" data-reveal>
-      <p class="question-line">Would you let me be the one who gets to love you, care for you, and create beautiful memories with you?</p>
-      <p class="question-line">Would you give me a chance to be more than just the guy who secretly had a crush on you?</p>
-    </div>
-
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="7">Now it's your turn… <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 7 — YOUR ANSWER
-     ============================================================ -->
-<section class="page" id="p7">
-  <div class="page-inner">
-    <header class="chapter-head" data-reveal>
-      <p class="eyebrow">chapter seven</p>
-      <h2 class="ch-title">Your Answer</h2>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    </header>
-
-    <p class="lead" data-reveal>Whatever it is, Fadimatubinta…<br>my heart is listening.</p>
-
-    <div class="answer-btns" id="answerWrap" data-reveal>
-      <button class="btn btn-yes" id="btnYes">Yes <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-      <button class="btn btn-think" id="btnThink">Let me think… <svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></button>
-      <p class="answer-note">take all the time you need — both answers are safe here.</p>
-    </div>
-
-    <!-- shown only if she chooses "Let me think…" -->
-    <div class="think-msg" id="thinkMsg" hidden>
-      <h3 class="big-script">Of course, Fadimatubinta…</h3>
-      <p class="t-line">You don't have to rush.</p>
-      <p class="t-line">Your feelings matter too.</p>
-      <p class="t-line">Take all the time you need.</p>
-      <p class="t-line">Whatever your answer is, I respect you.</p>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-      <p class="t-line">Thank you for taking the time to listen to my heart.</p>
-      <p class="t-line soft">And if one day your heart changes its mind… this page will be waiting.</p>
-      <div class="t-end">
-        <button class="btn btn-quiet btn-small" data-go="1" data-replay="1">Read it all again</button>
-        <button class="btn btn-yes btn-small" id="btnYesLate">It's yes <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 8 — IF SHE SAYS YES
-     ============================================================ -->
-<section class="page locked" id="p8">
-  <div class="act act-1">
-    <div class="sequence">
-      <p class="step pause-mark" data-hold="2200"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p>
-      <h2 class="step big-script name-yay" data-hold="2600" data-event="celebrate">Fadimatubinta…</h2>
-      <p class="step yay" data-hold="2800">You just made me the happiest person!</p>
-      <div class="step merge-wrap" data-hold="5000" data-event="merge">
-        <div class="merge-stage" aria-hidden="true">
-          <div class="m-heart m-left"><svg class="ic"><use href="#i-heart"/></svg></div>
-          <div class="m-heart m-right"><svg class="ic"><use href="#i-heart"/></svg></div>
-          <div class="m-ring"></div>
-          <div class="m-one"><svg class="ic"><use href="#i-heart"/></svg></div>
+        <div class="counter-grid" id="counter-grid">
+          <div class="counter-card reveal reveal-delay-1">
+            <div class="counter-value" id="cnt-years">—</div>
+            <div class="counter-label">Years of Grace</div>
+          </div>
+          <div class="counter-card reveal reveal-delay-2">
+            <div class="counter-value" id="cnt-days">—</div>
+            <div class="counter-label">Days Lived</div>
+          </div>
+          <div class="counter-card reveal reveal-delay-3">
+            <div class="counter-value" id="cnt-smiles">∞</div>
+            <div class="counter-label">Smiles Given</div>
+          </div>
+          <div class="counter-card reveal reveal-delay-4">
+            <div class="counter-value" id="cnt-hearts">∞</div>
+            <div class="counter-label">Hearts Touched</div>
+          </div>
         </div>
+
+        <p class="celebration-message reveal reveal-delay-5" id="bday-message" style="margin-top:40px;">
+          🎉 Wishing my best friend a magical birthday! 🎉
+        </p>
       </div>
-      <p class="step small-line" data-hold="2400">Thank you for giving our story a chance.</p>
-      <p class="step big-line" data-hold="2200">This isn't the end…</p>
-      <p class="step big-line" data-hold="2500">Maybe it's the beginning of something beautiful.</p>
-    </div>
-    <div class="scroll-cue">keep going</div>
-  </div>
+    </section>
 
-  <div class="page-inner">
-    <p class="sec-label" data-reveal>what I promise you</p>
-    <div class="litany" data-stagger>
-      <p data-reveal>I promise to always try to make you feel appreciated.</p>
-      <p data-reveal>To respect you.</p>
-      <p data-reveal>To listen to you.</p>
-      <p data-reveal>To celebrate you.</p>
-      <p data-reveal>To support your dreams.</p>
-      <p data-reveal>And to create memories with you that we can one day look back on and smile about.</p>
-    </div>
-
-    <!-- the birthday moment -->
-    <div class="bday" id="bday" data-reveal>
-      <svg class="ic ic-cake" aria-hidden="true"><use href="#i-cake"/></svg>
-      <p class="eyebrow gold">and above everything else — today</p>
-      <h3 class="bday-script">Happy Birthday,</h3>
-      <h3 class="bday-name">Fadimatubinta<br>Jibrin Abdullahi</h3>
-      <p class="center-p" style="margin-top:1.4rem">Today the whole sky feels a little brighter — because it's your day, and you deserve all the beauty in it.</p>
-    </div>
-
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <h3 class="big-line" data-reveal>Thank you for being part of my story…</h3>
-    <h4 class="big-script" data-reveal style="margin-top:1rem">And maybe… welcome to the beginning of ours.</h4>
-
-    <div class="page-cta" data-reveal>
-      <button class="btn btn-love" data-go="9">Our Story Begins <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PAGE 9 — OUR STORY (the gallery of future memories)
-     ============================================================ -->
-<section class="page" id="p9">
-  <div class="page-inner wide">
-    <header class="chapter-head" data-reveal>
-      <p class="eyebrow">chapter nine · to be continued</p>
-      <h2 class="big-script">Our Story</h2>
-      <p class="lead" data-reveal style="margin-top:1rem">an almost-empty album —<br>waiting for the memories we haven't made yet.</p>
-      <div class="divider"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    </header>
-
-    <div class="gallery">
-      <!-- REPLACE: her photo #3 — e.g. src="photos/her3.jpg" -->
-      <div class="ph" data-reveal>
-        <figure class="polaroid" style="--r:-3deg">
-          <span class="tape" aria-hidden="true"></span>
-          <img src="https://picsum.photos/seed/fadima-story/620/775.jpg" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
-          <figcaption>where it all began — the day I finally told her</figcaption>
-        </figure>
+    <!-- GALLERY -->
+    <section class="gallery-section" aria-labelledby="gallery-heading">
+      <div class="centered-header" style="max-width:800px;margin:0 auto;">
+        <p class="section-label reveal">Treasured Moments</p>
+        <h2 class="section-title reveal reveal-delay-1" id="gallery-heading">A Gallery of <em>Memories</em></h2>
+        <p class="section-sub reveal reveal-delay-2">
+          Every picture holds a story, every moment a feeling. Here's to all the beautiful chapters yet to come.
+        </p>
       </div>
-      <!-- empty frames = future memories (add real photos whenever they happen) -->
-      <div class="ph" data-reveal>
-        <figure class="polaroid empty" style="--r:4deg">
-          <div class="frame"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></div>
-          <figcaption>our first photo — not taken yet</figcaption>
-        </figure>
+
+      <div class="gallery-grid" role="list" aria-label="Memory gallery">
+        <div class="polaroid reveal reveal-delay-1" role="listitem" tabindex="0" aria-label="Memory 1">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/image.png" alt="Memory 1"></div>
+          <span class="polaroid-caption">Memory 1</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-2" role="listitem" tabindex="0" aria-label="Memory 2">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.48 PM.jpeg" alt="Memory 2"></div>
+          <span class="polaroid-caption">Memory 2</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-3" role="listitem" tabindex="0" aria-label="Memory 3">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.48 PM.jpeg" alt="Memory 3"></div>
+          <span class="polaroid-caption">Memory 3</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-4" role="listitem" tabindex="0" aria-label="Memory 4">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.47 PM.jpeg" alt="Memory 4"></div>
+          <span class="polaroid-caption">Memory 4</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-5" role="listitem" tabindex="0" aria-label="Memory 5">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.48 PM.jpeg" alt="Memory 5"></div>
+          <span class="polaroid-caption">Memory 5</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-6" role="listitem" tabindex="0" aria-label="Memory 6">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.49 PM.jpeg" alt="Memory 6"></div>
+          <span class="polaroid-caption">Memory 6</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-1" role="listitem" tabindex="0" aria-label="Memory 7">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.48 PM.jpeg" alt="Memory 7"></div>
+          <span class="polaroid-caption">Memory 7</span>
+        </div>
+        <div class="polaroid reveal reveal-delay-2" role="listitem" tabindex="0" aria-label="Memory 8">
+          <div class="polaroid-img" aria-hidden="true"><img src="ic/WhatsApp Image 2026-08-24 at 11.03.47 PM.jpeg" alt="Memory 8"></div>
+          <span class="polaroid-caption">Memory 8</span>
+        </div>
+        
       </div>
-      <div class="ph" data-reveal>
-        <figure class="polaroid empty" style="--r:-5deg">
-          <div class="frame"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-          <figcaption>a sunset we haven't watched yet</figcaption>
-        </figure>
+    </section>
+
+    <!-- WISH GENERATOR -->
+    <section class="wish-section" aria-labelledby="wish-heading">
+      <p class="section-label">Birthday Blessings</p>
+      <h2 class="section-title reveal reveal-delay-1" id="wish-heading" style="margin-bottom:12px;">
+        A <em>Blessing</em> Just for You
+      </h2>
+      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 40px;">
+        Tap the button and receive a unique birthday blessing crafted with love.
+      </p>
+
+      <div class="wish-card reveal reveal-delay-3" role="region" aria-live="polite" aria-label="Birthday blessing display">
+        <span class="wish-emoji" id="wish-emoji">🌸</span>
+        <p class="wish-text" id="wish-text">
+          Click the button below to receive your special birthday blessing, Fadimatubinta 💕
+        </p>
+        <span class="wish-author" id="wish-author">— With all my love</span>
       </div>
-      <div class="ph" data-reveal>
-        <figure class="polaroid empty" style="--r:3deg">
-          <div class="frame"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></div>
-          <figcaption>some place that will feel like ours</figcaption>
-        </figure>
+
+      <button class="btn-wish reveal reveal-delay-4" id="btn-wish" aria-label="Generate a new birthday blessing">
+        🌟 Receive a Birthday Blessing
+      </button>
+    </section>
+
+    <!-- HEARTFELT LETTER -->
+    <section class="letter-section" aria-labelledby="letter-heading">
+      <div class="letter-card reveal">
+        <p class="letter-greeting" id="letter-heading">
+          Happy Birthday to an amazing person and my best friend, Fadimatubinta Jibrin Abdullahi. ❤️🎂✨
+        </p>
+        <div class="letter-body">
+          <p>
+            Today is all about celebrating you — the beautiful person you are and another wonderful
+            year of your life. I hope this new chapter brings you happiness, peace, success, beautiful
+            memories, and everything your heart truly wishes for.
+          </p>
+          <p>
+            Having someone like you in my life means more than I may always know how to express.
+            Your presence, your personality, and the moments we share make you someone truly special to me.
+          </p>
+          <p>
+            On your special day, I just want you to smile, feel appreciated, and remember that you are
+            important. I pray this new year of your life brings you closer to your dreams and fills your
+            days with countless reasons to be happy.
+          </p>
+          <p>
+            So today, my best friend, this is for you. ❤️
+          </p>
+          <p>
+            May your smile always remain beautiful. May your heart always find happiness. May your dreams
+            continue to grow, and may this new age bring you beautiful opportunities and unforgettable moments.
+          </p>
+          <p>
+            Happy Birthday, My Best Friend! ❤️🎉🎂<br>
+            Fadimatubinta Jibrin Abdullahi, may this year be one of the most beautiful chapters of your life. ✨❤️
+          </p>
+        </div>
+        <p class="letter-sign">With so much love, your best friend 💕</p>
+
+        <a class="btn-wish reveal reveal-delay-3" id="btn-next-page" href="index.html" style="margin-top:32px;display:inline-block;text-decoration:none;">
+          There's Something More I Want to Tell You... ❤️
+        </a>
       </div>
-      <div class="ph" data-reveal>
-        <figure class="polaroid empty" style="--r:-2deg">
-          <div class="frame"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-          <figcaption>laughing at absolutely nothing</figcaption>
-        </figure>
-      </div>
-    </div>
+    </section>
 
-    <p class="center-p" data-reveal>This page is almost empty — and that's the point. Every space here is a memory waiting to happen.</p>
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-heart" aria-hidden="true">💖</span>
+      <p class="footer-text">Made with boundless love for</p>
+      <p class="footer-name">Fadimatubinta Jibrin Abdullahi</p>
+      <p class="footer-text" style="margin-top:6px;">Happy Birthday, My Best Friend 🎀</p>
+    </footer>
 
-    <div class="divider" data-reveal><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
-    <p class="signoff" data-reveal>— written for Fadimatubinta,<br>with everything I couldn't quite say out loud.</p>
+  </div><!-- /main-content -->
 
-    <div class="again" data-reveal>
-      <button class="btn btn-quiet" data-go="1" data-replay="1">Begin again <svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<script>
-(function(){
-'use strict';
-/* ============================================================
-   FOR FADIMATUBINTA — engine
-   sections: helpers · sky canvas · particle canvas (hearts,
-   petals, sparks) · music box (Web Audio) · router · sequences ·
-   per-page features
-   ============================================================ */
-const $  = (s,c)=> (c||document).querySelector(s);
-const $$ = (s,c)=> Array.prototype.slice.call((c||document).querySelectorAll(s));
-const rand = (a,b)=> a + Math.random()*(b-a);
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------------- SKY : stars + shooting stars ---------------- */
-const skyCv = $('#sky'), sky = skyCv.getContext('2d');
-const fxCv  = $('#fx'),  fxc = fxCv.getContext('2d');
-let W=0,H=0,DPR=1, stars=[], shots=[], shotTimer=5;
-let px=0,py=0,tpx=0,tpy=0; // gentle pointer parallax
-
-function resize(){
-  DPR = Math.min(window.devicePixelRatio||1, 2);
-  W = innerWidth; H = innerHeight;
-  [skyCv,fxCv].forEach(c=>{ c.width=W*DPR; c.height=H*DPR; c.style.width=W+'px'; c.style.height=H+'px'; });
-  sky.setTransform(DPR,0,0,DPR,0,0); fxc.setTransform(DPR,0,0,DPR,0,0);
-  makeStars();
-}
-function makeStars(){
-  const n = reduced ? 40 : Math.round(Math.min(170, (W*H)/9000));
-  stars=[];
-  for(let i=0;i<n;i++){
-    const r = rand(.4,1.5);
-    stars.push({x:Math.random()*W, y:Math.random()*H, r:r, ph:rand(0,6.28), sp:rand(.4,1.4),
-      c: Math.random()<.12 ? '203,182,240' : (Math.random()<.12 ? '244,216,200' : '246,240,248'), d:r});
-  }
-}
-addEventListener('resize', resize);
-addEventListener('pointermove', e=>{ tpx=e.clientX/W-.5; tpy=e.clientY/H-.5; }, {passive:true});
-
-function spawnShot(){
-  const fromRight = Math.random()<.5;
-  shots.push({x: fromRight ? W+40 : rand(0,W*.5), y: rand(0,H*.45),
-              vx: fromRight ? rand(-9,-6) : rand(6,9), vy: rand(2,3.4), life:1});
-}
-
-/* ---------------- FX : pre-rendered glowing sprites ---------------- */
-function makeSprite(size, fn){ const c=document.createElement('canvas'); c.width=c.height=size; fn(c.getContext('2d'), size); return c; }
-function heartPath(g){ g.beginPath(); g.moveTo(0,11); g.bezierCurveTo(-16,2,-15,-12,0,-4); g.bezierCurveTo(15,-12,16,2,0,11); g.closePath(); }
-function petalPath(g){ g.beginPath(); g.moveTo(0,-11); g.bezierCurveTo(8,-8,8,6,0,12); g.bezierCurveTo(-8,6,-8,-8,0,-11); g.closePath(); }
-const SPR = {
-  heartS: makeSprite(28,(g,s)=>{ g.translate(s/2,s/2); g.scale(.52,.52); g.shadowColor='rgba(244,168,192,.9)'; g.shadowBlur=6; g.fillStyle='#f4a8c0'; heartPath(g); g.fill(); g.fill(); }),
-  heartM: makeSprite(48,(g,s)=>{ g.translate(s/2,s/2); g.scale(.85,.85); g.shadowColor='rgba(236,120,160,.9)'; g.shadowBlur=10; g.fillStyle='#ec78a0'; heartPath(g); g.fill(); g.fill(); }),
-  heartL: makeSprite(72,(g,s)=>{ g.translate(s/2,s/2); g.scale(1.22,1.22); g.shadowColor='rgba(230,100,145,.95)'; g.shadowBlur=13; g.fillStyle='#e66a94'; heartPath(g); g.fill(); g.fill(); }),
-  petal:  makeSprite(30,(g,s)=>{ g.translate(s/2,s/2); g.rotate(.6); g.shadowColor='rgba(246,214,224,.6)'; g.shadowBlur=5; g.fillStyle='rgba(246,214,224,.92)'; petalPath(g); g.fill(); }),
-  petalL: makeSprite(34,(g,s)=>{ g.translate(s/2,s/2); g.rotate(-.5); g.shadowColor='rgba(238,190,206,.55)'; g.shadowBlur=5; g.fillStyle='rgba(238,190,206,.9)'; petalPath(g); g.fill(); }),
-  spark:  makeSprite(22,(g,s)=>{ g.translate(s/2,s/2); g.shadowColor='rgba(255,230,180,.9)'; g.shadowBlur=6; g.fillStyle='rgba(255,236,196,.95)';
-    g.beginPath(); g.moveTo(0,-8); g.quadraticCurveTo(1.6,-1.6,8,0); g.quadraticCurveTo(1.6,1.6,0,8); g.quadraticCurveTo(-1.6,1.6,-8,0); g.quadraticCurveTo(-1.6,-1.6,0,-8); g.fill(); }),
-  sparkP: makeSprite(22,(g,s)=>{ g.translate(s/2,s/2); g.shadowColor='rgba(242,167,192,.9)'; g.shadowBlur=6; g.fillStyle='rgba(247,188,208,.95)';
-    g.beginPath(); g.moveTo(0,-8); g.quadraticCurveTo(1.6,-1.6,8,0); g.quadraticCurveTo(1.6,1.6,0,8); g.quadraticCurveTo(-1.6,1.6,-8,0); g.quadraticCurveTo(-1.6,-1.6,0,-8); g.fill(); })
-};
-
-const parts=[];
-const amb={hearts:.01,petals:0,sparks:.004}; // per-frame spawn chances, switched per page
-let rainUntil=0;
-const MAXP = reduced ? 30 : 300;
-
-function spawn(type,o){
-  o=o||{};
-  if(parts.length>=MAXP) return;
-  const map={heart:'heartS',heartM:'heartM',heartL:'heartL',petal:'petal',petalL:'petalL',spark:'spark',sparkP:'sparkP'};
-  const up = type.indexOf('heart')===0;
-  parts.push({ x:o.x!=null?o.x:rand(0,W), y:o.y!=null?o.y:(up?H+20:-20),
-    vx:o.vx!=null?o.vx:rand(-.15,.15), vy:o.vy!=null?o.vy:(up?rand(-.65,-.25):rand(.25,.65)),
-    rot:rand(0,6.28), vr:rand(-.02,.02), a:0, maxA:o.maxA!=null?o.maxA:rand(.5,.95),
-    life:0, ttl:o.ttl!=null?o.ttl:rand(240,430), sway:rand(.4,1.4), swayPh:rand(0,6.28),
-    sc:o.sc!=null?o.sc:rand(.6,1.15), spr:SPR[map[type]||'heartS'], drift:!!o.drift });
-}
-function burst(x,y,o){
-  o=o||{};
-  const count=o.count||26, spread=o.spread||3.4, types=o.types||['heartS','spark','heartM'];
-  x=Math.max(20,Math.min(W-20,x)); y=Math.max(20,Math.min(H-20,y));
-  for(let i=0;i<count;i++){
-    const ang=rand(0,6.28), sp=rand(.4,spread);
-    parts.push({x:x,y:y,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-.6,rot:rand(0,6.28),vr:rand(-.05,.05),
-      a:0,maxA:rand(.6,1),life:0,ttl:rand(70,160),sway:0,swayPh:0,sc:rand(.7,1.3),
-      spr:SPR[types[i%types.length]],drift:true});
-  }
-}
-function burstAtEl(el,o){ const r=el.getBoundingClientRect(); burst(r.left+r.width/2, r.top+Math.min(r.height/2,H*.4), o); }
-function celebrate(){ burst(W/2,H*.55,{count:reduced?30:70,spread:5,types:['heartM','heartS','spark','heartL']}); rainUntil=performance.now()+(reduced?800:4200); }
-
-/* per-page ambience */
-const AMBIENT={
-  p1:{hearts:.010,petals:0,sparks:.004},
-  p2:{hearts:.004,petals:.004,sparks:.003},
-  p3:{hearts:.012,petals:.016,sparks:.005},
-  p4:{hearts:.006,petals:0,sparks:.004},
-  p5:{hearts:.005,petals:.006,sparks:.004},
-  p6:{hearts:.010,petals:.014,sparks:.006},
-  p7:{hearts:.006,petals:.004,sparks:.004},
-  p8:{hearts:.030,petals:.006,sparks:.014},
-  p9:{hearts:.006,petals:.008,sparks:.004}
-};
-function setAmbient(id){ const a=AMBIENT[id]||AMBIENT.p1; amb.hearts=a.hearts; amb.petals=a.petals; amb.sparks=a.sparks; }
-
-/* ---------------- the single animation loop ---------------- */
-let last=performance.now();
-function frame(now){
-  const dt=Math.min(50,now-last); last=now;
-  /* sky */
-  sky.clearRect(0,0,W,H);
-  px+=(tpx-px)*.03; py+=(tpy-py)*.03;
-  const t=now/1000;
-  for(let i=0;i<stars.length;i++){
-    const s=stars[i], tw=.3+.7*(.5+.5*Math.sin(t*s.sp+s.ph));
-    sky.globalAlpha=tw*.9; sky.fillStyle='rgb('+s.c+')';
-    sky.beginPath(); sky.arc(s.x+px*s.d*6, s.y+py*s.d*6, s.r, 0, 6.283); sky.fill();
-  }
-  sky.globalAlpha=1;
-  /* shooting stars */
-  shotTimer-=dt/1000;
-  if(shotTimer<=0 && !reduced && !document.hidden){ spawnShot(); shotTimer = (document.body.dataset.page==='p6') ? rand(4,8) : rand(9,18); }
-  for(let i=shots.length-1;i>=0;i--){
-    const s=shots[i];
-    s.x+=s.vx*dt/16; s.y+=s.vy*dt/16; s.life-=dt/900;
-    if(s.life<=0){ shots.splice(i,1); continue; }
-    const len=90, mag=Math.hypot(s.vx,s.vy), tx=s.x-s.vx/mag*len, ty=s.y-s.vy/mag*len;
-    const gr=sky.createLinearGradient(s.x,s.y,tx,ty);
-    gr.addColorStop(0,'rgba(255,244,230,'+(.85*s.life)+')'); gr.addColorStop(1,'rgba(255,244,230,0)');
-    sky.strokeStyle=gr; sky.lineWidth=1.6; sky.beginPath(); sky.moveTo(s.x,s.y); sky.lineTo(tx,ty); sky.stroke();
-  }
-  /* fx particles */
-  fxc.clearRect(0,0,W,H);
-  if(!document.hidden && !reduced){
-    if(Math.random()<amb.hearts) spawn(Math.random()<.25?'heartM':'heart');
-    if(Math.random()<amb.petals) spawn(Math.random()<.5?'petal':'petalL');
-    if(Math.random()<amb.sparks) spawn(Math.random()<.5?'spark':'sparkP');
-  }
-  if(now<rainUntil && !document.hidden){
-    for(let i=0;i<2;i++) spawn(Math.random()<.4?'heartM':'heart',{y:rand(0,H),ttl:rand(180,360)});
-    if(Math.random()<.5) spawn('spark',{y:rand(0,H)});
-  }
-  for(let i=parts.length-1;i>=0;i--){
-    const p=parts[i]; p.life++;
-    const k=p.life/p.ttl;
-    if(k>=1){ parts.splice(i,1); continue; }
-    p.a = k<.15 ? k/.15*p.maxA : (k>.7 ? (1-k)/.3*p.maxA : p.maxA);
-    if(p.drift){ p.vx*=.985; if(p.life>25) p.vy-=.015; }
-    p.swayPh+=.02;
-    p.x+=p.vx+Math.sin(p.swayPh)*.3*p.sway;
-    p.y+=p.vy; p.rot+=p.vr;
-    fxc.globalAlpha=Math.max(0,p.a);
-    fxc.save(); fxc.translate(p.x,p.y); fxc.rotate(p.rot);
-    const w=p.spr.width*p.sc; fxc.drawImage(p.spr,-w/2,-w/2,w,w); fxc.restore();
-  }
-  fxc.globalAlpha=1;
-  requestAnimationFrame(frame);
-}
-
-/* ---------------- MUSIC : supports synth + custom audio files/URLs ---------------- */
-const Music=(function(){
-  const btn=$('#musicBtn'), hint=$('#musicHint');
-  const panel = $('#musicPanel'), fileEl = $('#musicFile'), urlEl = $('#musicUrl'), saveBtn = $('#saveMusicUrl'), clearBtn = $('#clearMusic');
-  let ctx=null, master=null, send=null, synthTimer=null, evIdx=0, loopStart=0, playing=false;
-  let userObjectUrl = null; // for file uploads
-
-  // small synth (kept as fallback)
-  const spb=60/76, LOOP=24*spb; // 3/4 waltz, 76 bpm, 8 bars
-  const F={C3:130.81,E3:164.81,F3:174.61,G3:196.00,A3:220.00,
-           D5:587.33,E5:659.25,G5:783.99,A5:880.00,B5:987.77,C6:1046.50};
-  const evs=[
-    [0,'E5'],[1,'G5'],[2,'C6'],[3,'B5'],[4,'G5'],[5,'A5'],[6,'G5'],[7,'E5'],[8,'D5'],[9,'E5',2.2],
-    [12,'D5'],[13,'E5'],[14,'G5'],[15,'A5'],[16,'C6'],[17,'B5'],[18,'A5'],[19,'G5'],[20,'E5'],[21,'D5',2.6],
-    [0,'C3',3],[3,'G3',3],[6,'A3',3],[9,'E3',3],[12,'F3',3],[15,'C3',3],[18,'F3',3],[21,'G3',3]
-  ].map(function(m){ return {b:m[0],f:F[m[1]],d:(m[2]||1)*spb,g:F[m[1]]<300?.05:.15}; }).sort(function(a,b){return a.b-b.b;});
-  function ensure(){
-    if(ctx) return;
-    ctx=new (window.AudioContext||window.webkitAudioContext)();
-    master=ctx.createGain(); master.gain.value=.5; master.connect(ctx.destination);
-    send=ctx.createGain(); send.gain.value=.85;
-    const delay=ctx.createDelay(1); delay.delayTime.value=.34;
-    const fb=ctx.createGain(); fb.gain.value=.3;
-    const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=2400;
-    const wet=ctx.createGain(); wet.gain.value=.3;
-    send.connect(delay); delay.connect(lp); lp.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(ctx.destination);
-  }
-  function note(t,ev){
-    const o1=ctx.createOscillator(); o1.type='sine'; o1.frequency.value=ev.f;
-    const o2=ctx.createOscillator(); o2.type='sine'; o2.frequency.value=ev.f*2;
-    const g1=ctx.createGain(), g2=ctx.createGain();
-    g1.gain.setValueAtTime(0,t); g1.gain.linearRampToValueAtTime(ev.g,t+.012);
-    g1.gain.exponentialRampToValueAtTime(.0004,t+Math.max(ev.d,1.4));
-    g2.gain.setValueAtTime(0,t); g2.gain.linearRampToValueAtTime(ev.g*.24,t+.012);
-    g2.gain.exponentialRampToValueAtTime(.0003,t+ev.d*.7);
-    if(ctx.createStereoPanner){ const p=ctx.createStereoPanner(); p.pan.value=rand(-.35,.35); g1.connect(p); g2.connect(p); p.connect(master); }
-    else { g1.connect(master); g2.connect(master); }
-    o1.connect(g1); o2.connect(g2);
-    g1.connect(send);
-    o1.start(t); o2.start(t); o1.stop(t+ev.d+.15); o2.stop(t+ev.d+.15);
-  }
-  function tick(){
-    const now=ctx.currentTime, ahead=now+.7; let guard=0;
-    while(guard++<80){
-      const ev=evs[evIdx], t=loopStart+ev.b*spb;
-      if(t>ahead) break;
-      if(t>=now-.08) note(Math.max(t,now+.02),ev);
-      evIdx++;
-      if(evIdx>=evs.length){ evIdx=0; loopStart+=LOOP; }
-    }
-  }
-  function startSynth(){ /* synth disabled by request — not used */ }
-  function stopSynth(){ if(synthTimer){ clearInterval(synthTimer); synthTimer=null; } }
-
-  // user-supplied audio element (supports loop)
-  const bgAudio = new Audio(); bgAudio.loop = true; bgAudio.preload='auto'; bgAudio.volume = .68; bgAudio.crossOrigin = 'anonymous';
-  bgAudio.addEventListener('play',()=>{ btn.classList.add('playing'); btn.setAttribute('aria-pressed','true'); btn.setAttribute('aria-label','Pause the music'); if(hint) hint.classList.add('hide'); });
-  bgAudio.addEventListener('pause',()=>{ btn.classList.remove('playing'); btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Play the music'); });
-
-  function loadUrl(url, persist){
-    try{ bgAudio.src = url; if(persist) localStorage.setItem('bgAudioUrl', url); }
-    catch(e){ console.warn('Could not load audio URL', e); }
-  }
-  function loadFile(file){ if(userObjectUrl) URL.revokeObjectURL(userObjectUrl); userObjectUrl = URL.createObjectURL(file); bgAudio.src = userObjectUrl; }
-
-  function play(){
-    if(bgAudio.src){
-      try{ bgAudio.play(); playing = true; }
-      catch(e){ console.warn('Audio play blocked', e); }
-      return;
-    }
-    // no audio source — do nothing (user requested only the specific song)
-    if(hint) hint.textContent = 'No background song available. Shift+click to open music panel.';
-  }
-  function stop(){
-    if(bgAudio.src && !bgAudio.paused){ try{ bgAudio.pause(); bgAudio.currentTime = 0; }catch(e){} }
-    stopSynth(); playing = false; btn.classList.remove('playing'); btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Play the music');
-  }
-
-  // toggle panel with shift+click on the button
-  function togglePanel(){ if(!panel) return; panel.style.display = panel.style.display==='none'?'flex':'none'; }
-  btn.addEventListener('click', function(e){ if(e.shiftKey){ togglePanel(); return; } playing?stop():play(); });
-
-  // outside click to hide panel
-  document.addEventListener('click', function(e){ if(!panel) return; if(panel.style.display==='none') return; if(e.target===btn || btn.contains(e.target) || panel.contains(e.target)) return; panel.style.display='none'; });
-
-  // file input
-  fileEl && fileEl.addEventListener('change', function(e){ const f=this.files && this.files[0]; if(!f) return; loadFile(f); play(); });
-  // save URL
-  saveBtn && saveBtn.addEventListener('click', function(){ const v=(urlEl && urlEl.value||'').trim(); if(!v) return; loadUrl(v,true); play(); });
-  // clear saved
-  clearBtn && clearBtn.addEventListener('click', function(){ localStorage.removeItem('bgAudioUrl'); if(userObjectUrl){ URL.revokeObjectURL(userObjectUrl); userObjectUrl=null; } bgAudio.pause(); bgAudio.src=''; stop(); });
-
-  // load saved URL on start (if any) and attempt autoplay
-  try{
-    const saved = localStorage.getItem('bgAudioUrl');
-    if(saved) {
-      loadUrl(saved,false);
-      urlEl && (urlEl.value = saved);
-      const p = bgAudio.play(); if(p && typeof p.catch==='function') p.catch(function(){ setupGestureStart(); });
-    }
-  }catch(e){}
-
-  // if autoplay is blocked, wait for a user gesture then start playback
-  let gestureBound = false;
-  function setupGestureStart(){
-    if(gestureBound) return; gestureBound = true;
-    const overlay = document.getElementById('musicOverlay');
-    const overlayBtn = document.getElementById('overlayPlay');
-    if(overlay){ overlay.style.display='flex'; overlay.style.flexDirection='column'; }
-    if(hint) hint.textContent = 'Tap anywhere to enable music';
-    const startOnce = function(){ try{ play(); }catch(e){} finally{ removeListeners(); hideOverlay(); } };
-    const removeListeners = function(){ document.removeEventListener('pointerdown', startOnce); document.removeEventListener('touchstart', startOnce); document.removeEventListener('keydown', startOnce); if(overlayBtn) overlayBtn.removeEventListener('click', startOnce); };
-    const hideOverlay = function(){ if(overlay) overlay.style.display='none'; };
-    document.addEventListener('pointerdown', startOnce, {once:true});
-    document.addEventListener('touchstart', startOnce, {once:true});
-    document.addEventListener('keydown', startOnce, {once:true});
-    if(overlayBtn) overlayBtn.addEventListener('click', startOnce, {once:true});
-  }
-
-  // try common local paths for the song file (looping) and autoplay when possible
-  (function tryAutoLoadLocal(){
-    // Only attempt to load the single song you specified
-    const candidates = [
-      './ic/justin-dai-marvin.mp3'
-    ];
-    async function testAndLoad(){
-      for(const p of candidates){
-        try{
-          const res = await fetch(p, {method:'HEAD'});
-          if(res && res.ok){ loadUrl(p,true);
-            // attempt to autoplay, if blocked set up gesture fallback
-            const pr = bgAudio.play();
-            if(pr && typeof pr.catch==='function') pr.catch(function(){ setupGestureStart(); });
-            return; }
-        }catch(e){ /* ignore and try next */ }
-      }
-    }
-    // attempt once DOM is ready
-    if(document.readyState==='complete' || document.readyState==='interactive') testAndLoad(); else document.addEventListener('DOMContentLoaded', testAndLoad);
-  })();
-
-  // small hint hide
-  setTimeout(function(){ if(hint && !btn.classList.contains('playing')) hint.classList.add('hide'); },16000);
-
-  return {};
-})();
-
-/* ---------------- ROUTER : cinematic page transitions ---------------- */
-const pages=$$('.page');
-const CHAPTERS={p1:'i — the beginning',p2:'ii — how it all started',p3:'iii — the little things',
-  p4:'iv — the confession',p5:'v — the love i want to give',p6:'vi — the question',
-  p7:'vii — your answer',p8:'viii — the beginning of us',p9:'ix — our story'};
-const seqState={};
-let cur=0, busy=false, suppressHash=false;
-const chapterLabel=$('#chapterLabel');
-
-function updateChapter(id){
-  chapterLabel.classList.add('sw');
-  setTimeout(function(){ chapterLabel.textContent=CHAPTERS[id]; chapterLabel.classList.remove('sw'); },300);
-}
-function goTo(i){
-  if(busy||i===cur||i<0||i>=pages.length) return;
-  busy=true;
-  const from=pages[cur], to=pages[i];
-  if(from._ctrl) from._ctrl.stop();
-  cur=i;
-  suppressHash=true;
-  if('#'+to.id!==location.hash) location.hash=to.id;
-  document.body.dataset.page=to.id;
-  setAmbient(to.id); updateChapter(to.id);
-  from.classList.add('leave');
-  setTimeout(function(){ from.classList.remove('active','leave','enter'); },760);
-  to.scrollTop=0;
-  to.classList.add('active');
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ to.classList.add('enter'); }); });
-  setTimeout(function(){ to.classList.remove('enter'); busy=false; },1200);
-  burst(W/2,H*.5,{count:10,spread:2,types:['heartS','spark']}); /* magical transition puff */
-  setTimeout(function(){ initPage(to); },650);
-}
-addEventListener('hashchange',function(){
-  if(suppressHash){ suppressHash=false; return; }
-  const i=pages.findIndex(function(p){ return p.id===location.hash.slice(1); });
-  if(i>=0&&i!==cur) goTo(i);
-});
-
-/* full replay (used by "read it all again" / "begin again") */
-function resetAll(){
-  Object.keys(seqState).forEach(function(k){ delete seqState[k]; });
-  pages.forEach(function(p){
-    p.classList.remove('seq-done','seq-live','moon-bright');
-    $$('.step',p).forEach(function(s){ s.classList.remove('on'); });
-    const em=$('.heart-emblem',p); if(em) em.classList.remove('excited');
-    p.scrollTop=0;
-    if(p.id==='p4'||p.id==='p6'||p.id==='p8') p.classList.add('locked');
-  });
-}
-document.addEventListener('click',function(e){
-  const b=e.target.closest('[data-go]');
-  if(!b) return;
-  if(b.dataset.replay) resetAll();
-  if(b.classList.contains('btn')) burstAtEl(b,{count:14,spread:3,types:['heartS','spark']});
-  goTo(+b.dataset.go-1);
-});
-
-/* ---------------- sequence engine (timed story beats) ---------------- */
-function handleEvent(page,ev,step){
-  if(ev==='excited'){ const h=$('#p4heart',page)||$('.heart-emblem',page); if(h) h.classList.add('excited'); }
-  if(ev==='moon'){ page.classList.add('moon-bright'); }
-  if(ev==='name'){ const el=$('.name-script',page); if(el) setTimeout(function(){ burstAtEl(el,{count:16,spread:2.2,types:['spark','sparkP']}); },500); }
-  if(ev==='celebrate'){ celebrate(); }
-  if(ev==='merge'){ setTimeout(function(){ const m=$('.merge-stage',page); if(m) burstAtEl(m,{count:44,spread:4.4,types:['heartM','spark','heartS']}); },3050); }
-}
-function createSequence(page,seq){
-  const steps=$$('.step',seq);
-  let i=steps.findIndex(function(s){ return !s.classList.contains('on'); });
-  if(i<0) i=steps.length;
-  let timer=null, finished=false;
-  function next(){
-    if(finished) return;
-    clearTimeout(timer);
-    if(i>=steps.length) return finish();
-    const s=steps[i];
-    s.classList.add('on');
-    if(s.dataset.event) handleEvent(page,s.dataset.event,s);
-    timer=setTimeout(function(){ i++; next(); }, +(s.dataset.hold||2200));
-  }
-  function skip(){ if(finished) return; clearTimeout(timer); i++; next(); }
-  function finish(){
-    finished=true; seqState[page.id]='done';
-    page.classList.remove('locked','seq-live'); page.classList.add('seq-done');
-  }
-  function stop(){ finished=true; clearTimeout(timer); }
-  return { start:function(){ if(!finished&&!timer) next(); }, skip:skip, stop:stop, finished:function(){ return finished; } };
-}
-function initSequencePage(page){
-  const seq=$('.sequence',page); if(!seq) return;
-  if(seqState[page.id]==='done'){
-    $$('.step',seq).forEach(function(s){ s.classList.add('on'); if(s.dataset.event) handleEvent(page,s.dataset.event,s); });
-    page.classList.remove('locked'); page.classList.add('seq-done');
-    return;
-  }
-  page.classList.add('seq-live');
-  const ctrl=createSequence(page,seq);
-  page._ctrl=ctrl;
-  setTimeout(function(){ ctrl.start(); },900);
-}
-/* tap anywhere to move the story forward */
-pages.forEach(function(p){
-  p.addEventListener('pointerdown',function(e){
-    if(e.target.closest('button, a, .editable')) return;
-    if(p._ctrl && !p._ctrl.finished()) p._ctrl.skip();
-  });
-});
-
-/* ---------------- scroll reveals ---------------- */
-const io=new IntersectionObserver(function(es){
-  es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-function setupReveals(page){ $$('[data-reveal]',page).forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); }); }
-function setupStagger(page){
-  $$('[data-stagger]',page).forEach(function(g){
-    if(g.dataset.done) return; g.dataset.done=1;
-    $$(':scope > [data-reveal]',g).forEach(function(el,i){ el.style.setProperty('--rd',(i*110)+'ms'); });
-  });
-}
-
-/* ---------------- page 1 : her name, letter by letter ---------------- */
-(function(){
-  const el=$('#herName'); if(!el) return;
-  const txt=el.textContent.trim(); el.textContent='';
-  txt.split('').forEach(function(ch,i){
-    const s=document.createElement('span'); s.className='ch'; s.textContent=ch;
-    s.style.setProperty('--i',i); el.appendChild(s);
-  });
-})();
-
-/* ---------------- page 3 : parallax + editable notes ---------------- */
-function initParallax(page){
-  if(page._para) return; page._para=true;
-  const items=$$('[data-para]',page);
-  function apply(){
-    const vh=innerHeight;
-    items.forEach(function(el){
-      const r=el.getBoundingClientRect();
-      const c=(r.top+r.height/2-vh/2)/vh;
-      el.style.setProperty('--py',(c*-70*parseFloat(el.dataset.para||.2)).toFixed(1)+'px');
-    });
-  }
-  page.addEventListener('scroll',function(){ requestAnimationFrame(apply); },{passive:true});
-  apply();
-}
-function loadEditables(page){
-  $$('.editable',page).forEach(function(el){
-    const k='fadima:'+el.dataset.key;
-    try{ const v=localStorage.getItem(k); if(v!==null) el.textContent=v; }catch(e){}
-    el.addEventListener('blur',function(){ try{ localStorage.setItem(k,el.textContent.trim()); }catch(e){} });
-    el.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); el.blur(); } });
-  });
-}
-
-/* ---------------- page 7 : the answer ---------------- */
-function initAnswer(page){
-  if(page._ans) return; page._ans=true;
-  const yes=$('#btnYes'), think=$('#btnThink'), late=$('#btnYesLate'),
-        wrap=$('#answerWrap'), msg=$('#thinkMsg');
-  function sayYes(btn){
-    burstAtEl(btn,{count:46,spread:5,types:['heartM','heartL','spark']});
-      // open WhatsApp chat to the provided number with a short prefilled message
-      try{
-        const waNumber = '2349013583494'; // international format for 09013583494
-        const text = encodeURIComponent("Yes — I accept. Thank you.");
-        window.open('https://wa.me/' + waNumber + '?text=' + text, '_blank');
-      }catch(e){}
-      yes.disabled=think.disabled=true;
-      setTimeout(function(){ goTo(7); },750);
-  }
-  yes.addEventListener('click',function(){ sayYes(yes); });
-  if(late) late.addEventListener('click',function(){ sayYes(late); });
-  think.addEventListener('click',function(){
-    // open WhatsApp with a gentle 'let me think' message, then continue
-    try{
-      const waNumber = '2349013583494';
-      const text = encodeURIComponent("Let me think about this — I appreciate you. I'll reply soon.");
-      window.open('https://wa.me/' + waNumber + '?text=' + text, '_blank');
-    }catch(e){}
-    burstAtEl(think,{count:10,spread:2,types:['sparkP']});
-    wrap.classList.add('fade-out');
-    setTimeout(function(){
-      wrap.hidden=true; msg.hidden=false;
-      const lines=$$('.t-line',msg);
-      lines.forEach(function(l,i){ setTimeout(function(){ l.classList.add('on'); },350+i*950); });
-    },650);
-  });
-}
-
-/* ---------------- page 8 : birthday flourish ---------------- */
-function initBday(page){
-  const b=$('#bday',page); if(!b||b._done) return;
-  const o=new IntersectionObserver(function(es){
-    es.forEach(function(en){
-      if(en.isIntersecting){
-        b._done=true; b.classList.add('lit');
-        burstAtEl(b,{count:34,spread:3.6,types:['spark','sparkP','heartS']});
-        o.disconnect();
-      }
-    });
-  },{threshold:.35});
-  o.observe(b);
-}
-
-/* ---------------- page dispatcher ---------------- */
-function initPage(page){
-  setupStagger(page); setupReveals(page);
-  const id=page.id;
-  if(id==='p1'||id==='p4'||id==='p6'||id==='p8') initSequencePage(page);
-  if(id==='p3'){ initParallax(page); loadEditables(page); }
-  if(id==='p7') initAnswer(page);
-  if(id==='p8') initBday(page);
-}
-
-/* ---------------- boot ---------------- */
-resize();
-(function(){
-  const id=location.hash.slice(1);
-  let i=pages.findIndex(function(p){ return p.id===id; });
-  if(i<0) i=0;
-  cur=i;
-  const p=pages[i];
-  p.classList.add('active');
-  document.body.dataset.page=p.id;
-  setAmbient(p.id);
-  chapterLabel.textContent=CHAPTERS[p.id];
-  initPage(p);
-})();
-requestAnimationFrame(frame);
-})();
-</script>
+  <script src="birthday.js"></script>
 </body>
 </html>
