@@ -395,8 +395,8 @@ body::after{
   </div>
 </div>
 <!-- NOTE: to use your local song automatically, place the file named
-     justin-dai-marvin.mp3 inside the project folder or the `ic/` folder.
-     Supported example paths: ic/justin-dai-marvin.mp3 or justin-dai-marvin.mp3 -->
+    Keenan-Te-Rest-Of-My-Life.mp3 inside the project folder or the `ic/` folder.
+    Supported example path: ic/Keenan-Te-Rest-Of-My-Life.mp3 -->
 <!-- Fullscreen gesture overlay shown when autoplay is blocked -->
 <div id="musicOverlay" style="display:none;position:fixed;inset:0;z-index:80;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(6,4,8,.6),rgba(6,4,8,.85));color:var(--ink);text-align:center;padding:2rem;">
   <div style="max-width:520px;margin:0 auto">
@@ -523,7 +523,7 @@ body::after{
         <figure class="polaroid" style="--r:-4deg" data-para=".3">
           <span class="tape" aria-hidden="true"></span>
           <!-- REPLACE: her photo #1 — e.g. src="photos/her1.jpg" -->
-          <img src="https://picsum.photos/seed/fadima-smile/620/775.jpg" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
+          <img src="ic/image.png" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
           <figcaption>the first thing I ever noticed</figcaption>
         </figure>
       </div>
@@ -531,7 +531,7 @@ body::after{
         <figure class="polaroid" style="--r:3deg" data-para=".18">
           <span class="tape" aria-hidden="true"></span>
           <!-- REPLACE: her photo #2 — e.g. src="photos/her2.jpg" -->
-          <img src="https://picsum.photos/seed/fadima-moment/620/775.jpg" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
+          <img src="ic/ChatGPT Image Sep 11, 2026, 05_05_29 PM.png" alt="Photo placeholder — replace with a photo of Fadimatubinta" loading="lazy">
           <figcaption>an ordinary moment, made special</figcaption>
         </figure>
       </div>
@@ -996,7 +996,7 @@ let W=0,H=0,DPR=1, stars=[], shots=[], shotTimer=5;
 let px=0,py=0,tpx=0,tpy=0; // gentle pointer parallax
 
 function resize(){
-  DPR = Math.min(window.devicePixelRatio||1, 2);
+  DPR = Math.min(window.devicePixelRatio||1, 1.5);
   W = innerWidth; H = innerHeight;
   [skyCv,fxCv].forEach(c=>{ c.width=W*DPR; c.height=H*DPR; c.style.width=W+'px'; c.style.height=H+'px'; });
   sky.setTransform(DPR,0,0,DPR,0,0); fxc.setTransform(DPR,0,0,DPR,0,0);
@@ -1039,7 +1039,7 @@ const SPR = {
 const parts=[];
 const amb={hearts:.01,petals:0,sparks:.004}; // per-frame spawn chances, switched per page
 let rainUntil=0;
-const MAXP = reduced ? 30 : 300;
+const MAXP = reduced ? 30 : 140;
 
 function spawn(type,o){
   o=o||{};
@@ -1082,7 +1082,9 @@ function setAmbient(id){ const a=AMBIENT[id]||AMBIENT.p1; amb.hearts=a.hearts; a
 
 /* ---------------- the single animation loop ---------------- */
 let last=performance.now();
+const FRAME_INTERVAL=1000/30;
 function frame(now){
+  if(now-last<FRAME_INTERVAL){ requestAnimationFrame(frame); return; }
   const dt=Math.min(50,now-last); last=now;
   /* sky */
   sky.clearRect(0,0,W,H);
@@ -1258,7 +1260,7 @@ const Music=(function(){
   (function tryAutoLoadLocal(){
     // Only attempt to load the single song you specified
     const candidates = [
-      './ic/justin-dai-marvin.mp3'
+      './ic/Keenan-Te-Rest-Of-My-Life.mp3'
     ];
     async function testAndLoad(){
       for(const p of candidates){
